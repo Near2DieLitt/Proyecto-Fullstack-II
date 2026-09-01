@@ -1,0 +1,213 @@
+/* =========================================
+   VARIABLES DE COLOR (TU PALETA)
+   ========================================= */
+:root {
+    --color-background: #F9F6F2;
+    --color-foreground: #1A1614;
+    --color-card: #FFFFFF;
+    --color-card-foreground: #1A1614;
+    --color-primary: #1A1614;
+    --color-primary-foreground: #F9F6F2;
+    --color-secondary: #EDE8E1;
+    --color-secondary-foreground: #1A1614;
+    --color-muted: #EDE8E1;
+    --color-muted-foreground: #7A6A5E;
+    --color-accent: #B07820;
+    --color-accent-foreground: #FFFFFF;
+    --color-border: #E0D8CE;
+    --color-ring: #1A1614;
+}
+
+/* =========================================
+   REGLAS GENERALES
+   ========================================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    font-family: Arial, sans-serif;
+    color: var(--color-foreground);
+}
+
+/* =========================================
+   BARRA SUPERIOR OSCURA Y HEADER
+   ========================================= */
+#top-bar {
+    background-color: var(--color-foreground);
+    color: var(--color-primary-foreground);
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-background);
+}
+
+#logo-nav {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--color-foreground);
+}
+
+#logo-nav span, #logo-centro span {
+    font-style: italic;
+    font-weight: normal;
+    color: var(--color-muted-foreground);
+}
+
+nav a, #acciones a {
+    text-decoration: none;
+    color: var(--color-muted-foreground);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 15px;
+}
+
+nav a:hover, #acciones a:hover {
+    color: var(--color-foreground);
+}
+
+/* =========================================
+   CONTENEDOR CENTRAL DEL LOGIN/REGISTRO
+   ========================================= */
+.login {
+    width: 400px;
+    margin: 60px auto;
+}
+
+.caja-registro {
+    width: 550px; 
+}
+
+#logo-centro {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    color: var(--color-foreground);
+    margin-bottom: 35px;
+}
+
+/* =========================================
+   PESTAÑAS (BOTONES SUPERIORES)
+   ========================================= */
+.pestanas {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.pestanas button {
+    flex: 1;
+    padding: 15px 0;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    font-weight: bold;
+    color: var(--color-muted-foreground);
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.pestanas button.activa {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border-color: var(--color-primary);
+}
+
+/* =========================================
+   ESTRUCTURA DE COLUMNAS (REGISTRO)
+   ========================================= */
+.grupo-input {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fila-doble {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+/* =========================================
+   INPUTS, SELECTS Y TEXTOS
+   ========================================= */
+label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: var(--color-foreground);
+    margin-top: 20px;
+}
+
+.grupo-input label {
+    margin-top: 0; 
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--color-border);
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+    color: var(--color-foreground);
+    font-family: Arial, sans-serif;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* El Focus Ring que definiste en los tokens */
+input:focus, select:focus {
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 1px var(--color-ring);
+}
+
+/* Asteriscos con tu color accent */
+label span, .required {
+    color: var(--color-accent);
+}
+
+/* Los contadores de caracteres */
+.contador {
+    text-align: right;
+    font-size: 11px;
+    color: var(--color-muted-foreground);
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   BOTÓN PRINCIPAL (INGRESAR/CREAR CUENTA)
+   ========================================= */
+.login > button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.login > button:hover {
+    opacity: 0.9;
+}

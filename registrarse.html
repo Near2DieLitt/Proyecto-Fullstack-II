@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonido Vivo - Registrarse</title>
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body>
+
+    <div id="top-bar">
+        🚚 Despacho a todo Chile &bull; Retiro gratis en Viña del Mar &bull; Lunes a Sábado 10:00 - 19:00 hrs
+    </div>
+
+    <header>
+        <div id="logo-nav">SONIDO <span>vivo</span></div>
+        <nav>
+            <a href="#">INICIO</a>
+            <a href="#">CATÁLOGO</a>
+            <a href="#">SOBRE NOSOTROS</a>
+            <a href="#">MI PERFIL</a>
+        </nav>
+        <div id="acciones">
+            <a href="inicio-sesion.html">INGRESAR</a>
+            <a href="#">🛍️ CARRITO</a>
+        </div>
+    </header>
+    <div class="login caja-registro">
+        
+        <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
+
+        <div class="pestanas">
+            <button onclick="window.location.href='inicio-sesion.html'">INICIAR SESIÓN</button>
+            <button class="activa">REGISTRARSE</button>
+        </div>
+
+        <div class="grupo-input">
+            <label>RUN *</label>
+            <input type="text" id="Run" placeholder="Sin puntos ni guion, ej: 12345678K">
+        </div>
+
+        <div class="fila-doble">
+            <div class="grupo-input">
+                <label>NOMBRE *</label>
+                <input type="text" id="Nombre" placeholder="Tu nombre" maxlength="50">
+                <span class="contador">0/50</span>
+            </div>
+            <div class="grupo-input">
+                <label>APELLIDOS *</label>
+                <input type="text" id="Apellidos" placeholder="Apellidos" maxlength="100">
+                <span class="contador">0/100</span>
+            </div>
+        </div>
+
+        <div class="grupo-input">
+            <label>CORREO ELECTRÓNICO *</label>
+            <input type="email" id="CorreoReg" placeholder="nombre@ejemplo.com">
+        </div>
+
+        <div class="fila-doble">
+            <div class="grupo-input">
+                <label>CONTRASEÑA *</label>
+                <input type="password" id="ClaveReg" placeholder="4 a 10 caracteres" maxlength="10">
+            </div>
+            <div class="grupo-input">
+                <label>CONFIRMAR *</label>
+                <input type="password" id="ClaveConf" placeholder="Repite" maxlength="10">
+            </div>
+        </div>
+
+        <div class="fila-doble">
+            <div class="grupo-input">
+                <label>FECHA DE NACIMIENTO</label>
+                <input type="date" id="FechaNac">
+            </div>
+            <div class="grupo-input">
+                <label>TIPO DE USUARIO *</label>
+                <select id="TipoUsuario">
+                    <option value="" disabled selected>Seleccionar...</option>
+                    <option value="cliente">Cliente</option>
+                    <option value="vendedor">Vendedor</option>
+                </select>
+            </div>
+        </div>
