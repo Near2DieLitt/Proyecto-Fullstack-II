@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-cream {
+    background-color: #fcfbf9 !important;
+}
+
+.playfair-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.top-banner {
+    background-color: #111;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.custom-nav-link {
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: #6c757d !important;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.custom-nav-link:hover {
+    color: #000 !important;
+}
+
+.hero {
+    background-color: #1c1c1c;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(255, 255, 255, 0.5)), url('https://wallpapers.com/images/featured/fondos-de-estudio-de-musica-1ynuwttdssp40lz3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 600px;
+}
+.max-w-content {
+    max-width: 800px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.fs-7 { font-size: 0.85rem; }
+.fs-8 { font-size: 0.75rem; letter-spacing: 1px; }
+
+.view-all-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6c757d;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-bottom: 2px solid #6c757d;
+    padding-bottom: 2px;
+    transition: all 0.3s;
+}
+
+.view-all-link:hover {
+    color: #000;
+    border-color: #000;
+}
+
+.product-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 15px 0;
+    transition: bottom 0.3s ease;
+    z-index: 2;
+}
+
+.product-img-wrapper:hover .add-to-cart-btn {
+    bottom: 0;
+}
+
+.brand-text {
+    font-size: 0.7rem;
+    color: #6c757d;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.product-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.product-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #b28a5d;
+    margin-bottom: 0;
+}
+
+.bg-custom-banner {
+    background-color: #fcfbf9;
+}
+
+.banner-img-container {
+    width: 100%;
+    height: 400px; 
+    overflow: hidden;
+}
+
+.category-box {
+    height: 250px;
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.bg-secondary-custom {
+    background-color: #706b67;
+}
+
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid #dee2e6;
+    }
+}
