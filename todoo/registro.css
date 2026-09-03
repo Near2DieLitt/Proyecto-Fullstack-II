@@ -30,12 +30,11 @@ body {
 }
 
 /*  BARRA SUPERIOR OSCURA Y HEADER */
-#top-bar {
-    background-color: var(--color-foreground);
-    color: var(--color-primary-foreground);
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
+.top-banner {
+    background-color: #111;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 header {
