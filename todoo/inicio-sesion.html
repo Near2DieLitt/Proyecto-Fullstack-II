@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonido Vivo - Iniciar Sesión</title>
-    <!-- Conectado a tu archivo exacto -->
     <link rel="stylesheet" href="registro.css"> 
 </head>
 <body>
 
-    <!-- ========================================== -->
-    <!-- BARRA SUPERIOR Y MENÚ (Copia esto en tus otros HTML) -->
-    <!-- ========================================== -->
+
     <div id="top-bar">
         🚚 Despacho a todo Chile &bull; Retiro gratis en Viña del Mar &bull; Lunes a Sábado 10:00 - 19:00 hrs
     </div>
@@ -19,7 +16,7 @@
     <header>
         <div id="logo-nav">SONIDO <span>vivo</span></div>
         <nav>
-            <a href="#">INICIO</a>
+            <a href="sonido-vivo.html">INICIO</a>
             <a href="#">CATÁLOGO</a>
             <a href="#">SOBRE NOSOTROS</a>
             <a href="#">MI PERFIL</a>
@@ -29,34 +26,26 @@
             <a href="#">🛍️ CARRITO</a>
         </div>
     </header>
-    <!-- ========================================== -->
 
-    <!-- ========================================== -->
-    <!-- TU CONTENEDOR DE LOGIN -->
-    <!-- ========================================== -->
     <div class="login">
         
         <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
 
-        <!-- Botones para cambiar entre tus páginas HTML -->
         <div class="pestanas">
             <button class="activa">INICIAR SESIÓN</button>
             <button onclick="window.location.href='registrarse.html'">REGISTRARSE</button>
         </div>
 
-        <!-- Tus inputs exactos -->
         <label>CORREO ELECTRÓNICO *</label>
         <input type="email" id="Correo" placeholder="nombre@ejemplo.com">
 
         <label>CONTRASEÑA *</label>
         <input type="password" id="Clave" placeholder="4 a 10 caracteres" maxlength="10">
 
-        <!-- Llama a la función que tienes en inicio-sesion.js -->
         <button onclick="ingresar()">INGRESAR</button>
 
     </div>
 
-    <!-- Conectado a tu JS exacto -->
     <script src="inicio-sesion.js"></script>
 </body>
 </html>

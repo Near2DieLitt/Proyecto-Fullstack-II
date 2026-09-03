@@ -1,6 +1,4 @@
-/* =========================================
-   VARIABLES DE COLOR (TU PALETA)
-   ========================================= */
+/*  VARIABLES DE COLOR */
 :root {
     --color-background: #F9F6F2;
     --color-foreground: #1A1614;
@@ -18,9 +16,7 @@
     --color-ring: #1A1614;
 }
 
-/* =========================================
-   REGLAS GENERALES
-   ========================================= */
+/* REGLAS GENERALES */
 * {
     box-sizing: border-box;
 }
@@ -33,9 +29,7 @@ body {
     color: var(--color-foreground);
 }
 
-/* =========================================
-   BARRA SUPERIOR OSCURA Y HEADER
-   ========================================= */
+/*  BARRA SUPERIOR OSCURA Y HEADER */
 #top-bar {
     background-color: var(--color-foreground);
     color: var(--color-primary-foreground);
@@ -79,9 +73,7 @@ nav a:hover, #acciones a:hover {
     color: var(--color-foreground);
 }
 
-/* =========================================
-   CONTENEDOR CENTRAL DEL LOGIN/REGISTRO
-   ========================================= */
+/* CONTENEDOR CENTRAL DEL LOGIN/REGISTRO */
 .login {
     width: 400px;
     margin: 60px auto;
@@ -99,9 +91,7 @@ nav a:hover, #acciones a:hover {
     margin-bottom: 35px;
 }
 
-/* =========================================
-   PESTAÑAS (BOTONES SUPERIORES)
-   ========================================= */
+/* PESTAÑAS (BOTONES SUPERIORES) */
 .pestanas {
     display: flex;
     margin-bottom: 25px;
@@ -125,9 +115,9 @@ nav a:hover, #acciones a:hover {
     border-color: var(--color-primary);
 }
 
-/* =========================================
-   ESTRUCTURA DE COLUMNAS (REGISTRO)
-   ========================================= */
+
+/*ESTRUCTURA DE COLUMNAS (REGISTRO) */
+
 .grupo-input {
     margin-bottom: 20px;
     width: 100%;
@@ -141,9 +131,7 @@ nav a:hover, #acciones a:hover {
     width: 100%;
 }
 
-/* =========================================
-   INPUTS, SELECTS Y TEXTOS
-   ========================================= */
+/* INPUTS, SELECTS Y TEXTOS */
 label {
     display: block;
     font-size: 12px;
@@ -178,7 +166,7 @@ input:focus, select:focus {
     box-shadow: 0 0 0 1px var(--color-ring);
 }
 
-/* Asteriscos con tu color accent */
+/* Asteriscos con color accent */
 label span, .required {
     color: var(--color-accent);
 }
@@ -192,9 +180,7 @@ label span, .required {
     letter-spacing: 0.5px;
 }
 
-/* =========================================
-   BOTÓN PRINCIPAL (INGRESAR/CREAR CUENTA)
-   ========================================= */
+/* BOTÓN PRINCIPAL (INGRESAR/CREAR CUENTA) */
 .login > button {
     width: 100%;
     padding: 15px;
