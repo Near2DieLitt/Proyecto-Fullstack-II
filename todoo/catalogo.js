@@ -70,7 +70,7 @@ let productos = [
         nombre: "Nitro Mesh Kit", 
         precio: 399990, 
         descripcion: "Batería electrónica ideal para practicar en casa en silencio.", 
-        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO-z-zB_WcI-qL3T1_U0Y_p1Fw2n4v2fLgxw&s" 
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-M8opmh0Y80zfFD7vrnDUFNpE9OI8p9KecCQjuhVCggjPqv0Yw_elfit&s=10" 
     }
 ];
 
