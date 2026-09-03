@@ -1,12 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Tienda</title>
-    <link rel="stylesheet" href="registro.css">
+    <title>Sonido Vivo - Nuestra Tienda</title>
+    <link rel="stylesheet" href="registro.css"> 
 </head>
-<body>
-    
+<body class="bg-cream">
+
+    <!-- BARRA SUPERIOR Y HEADER -->
+    <div id="top-bar" class="top-banner">
+        🚚 Despacho a todo Chile &bull; Retiro gratis en Viña del Mar &bull; Lunes a Sábado 10:00 - 19:00 hrs
+    </div>
+
+    <header>
+        <div id="logo-nav" class="logo">SONIDO <span>vivo</span></div>
+        <nav>
+            <a href="#" class="custom-nav-link">INICIO</a>
+            <a href="#" class="custom-nav-link">CATÁLOGO</a>
+            <a href="#" class="custom-nav-link">SOBRE NOSOTROS</a>
+            <a href="inicio-sesion.html" class="custom-nav-link">MI PERFIL</a>
+        </nav>
+        <div id="acciones">
+            <a href="inicio-sesion.html" class="custom-nav-link">INGRESAR</a>
+            <a href="#" class="custom-nav-link">🛍️ CARRITO</a>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL DE LA TIENDA -->
+    <main class="store-wrapper">
+        <div class="store-header">
+            <h1 class="logo">Nuestra Tienda</h1>
+            <p class="subtitle fs-7">Visítanos en Viña del Mar, Región de Valparaíso</p>
+        </div>
+
+        <div class="store-grid">
+            
+            <!-- COLUMNA IZQUIERDA: MAPA INTERACTIVO -->
+            <div class="store-map-col">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.18731308365!2d-71.55403062335198!3d-33.00412357356985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689ddf3e09210e7%3A0xcdafae0b8e7330db!2sAv.%20Libertad%201234%2C%20Vi%C3%B1a%20del%20Mar%2C%20Valpara%C3%ADso!5e0!3m2!1ses-419!2scl!4v1693593000000!5m2!1ses-419!2scl" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <p class="map-caption">Mapa interactivo - Av. Libertad 1234, Viña del Mar</p>
+            </div>
+
+            <!-- COLUMNA DERECHA: TARJETAS DE INFORMACIÓN -->
+            <div class="store-info-col">
+                
+                <!-- Tarjeta 1: Información -->
+                <div class="info-card">
+                    <h3>Información de la tienda</h3>
+                    
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div class="info-text">
+                            <h4>Dirección</h4>
+                            <p>Av. Libertad 1234<br>Viña del Mar, Región de Valparaíso</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">🕒</span>
+                        <div class="info-text">
+                            <h4>Horario de atención</h4>
+                            <p>Lunes a Sábado<br>10:00 - 19:00 hrs</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <div class="info-text">
+                            <h4>Teléfono</h4>
+                            <p>+56 9 1234 5678</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <div class="info-text">
+                            <h4>Correo electrónico</h4>
+                            <p>contacto@sonidovivo.cl</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="info-icon">📱</span>
+                        <div class="info-text">
+                            <h4>WhatsApp / Instagram</h4>
+                            <p>@sonidovivo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Puntos de retiro -->
+                <div class="info-card">
+                    <h3>Puntos de retiro</h3>
+                    
+                    <div class="info-item">
+                        <span class="status-dot green"></span>
+                        <div class="info-text">
+                            <p class="fw-bold">Tienda principal</p>
+                            <p class="fs-small">Av. Libertad 1234, Viña del Mar</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="status-dot gray"></span>
+                        <div class="info-text">
+                            <p class="fw-bold">Sucursal Valparaíso</p>
+                            <p class="fs-small">Av. Brasil 456, Valparaíso<br><em>Próximamente</em></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Cómo llegar -->
+                <div class="info-card muted-card">
+                    <h3>¿Cómo llegar?</h3>
+                    
+                    <div class="info-item compact">
+                        <span class="info-icon">🚌</span>
+                        <p>Micro línea 602 o 609 - bajada Av. Libertad</p>
+                    </div>
+                    <div class="info-item compact">
+                        <span class="info-icon">🚇</span>
+                        <p>Metro Viña (Línea 3) - estación Libertad</p>
+                    </div>
+                    <div class="info-item compact">
+                        <span class="info-icon">🚗</span>
+                        <p>Estacionamiento en Av. Valparaíso</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="tienda.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-/*  VARIABLES DE COLOR */
+/*  VARIABLES DE COLOR */   
 :root {
     --color-background: #F9F6F2;
     --color-foreground: #1A1614;
@@ -196,4 +196,159 @@ label span, .required {
 
 .login > button:hover {
     opacity: 0.9;
+}
+/* =========================================
+   PÁGINA NUESTRA TIENDA (MAPA Y TARJETAS)
+   ========================================= */
+.store-wrapper {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.store-header {
+    margin-bottom: 30px;
+}
+
+.store-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.store-header p {
+    color: var(--color-muted-foreground);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 30px;
+}
+
+.map-container {
+    width: 100%;
+    height: 600px; 
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--color-secondary);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Regla para el Iframe de Google Maps */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block; 
+}
+
+.map-caption {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+    margin-top: 10px;
+}
+
+.store-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    background-color: var(--color-card);
+    border-radius: 16px;
+    padding: 25px 30px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    border: 1px solid var(--color-border);
+}
+
+.info-card.muted-card {
+    background-color: var(--color-secondary);
+    border: none;
+    box-shadow: none;
+}
+
+.info-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--color-foreground);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item.compact {
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.info-item.compact p {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.info-icon {
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.info-text h4 {
+    margin: 0 0 4px 0;
+    font-size: 0.75rem;
+    color: var(--color-muted-foreground);
+    font-weight: 600;
+}
+
+.info-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.fw-bold {
+    font-weight: 600;
+}
+
+.fs-small {
+    font-size: 0.8rem !important;
+    color: var(--color-muted-foreground);
+    margin-top: 2px !important;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.status-dot.green {
+    background-color: #28a745;
+}
+
+.status-dot.gray {
+    background-color: #6c757d;
+}
+
+@media (max-width: 900px) {
+    .store-grid {
+        grid-template-columns: 1fr; 
+    }
+    .map-container {
+        height: 400px;
+    }
 }
