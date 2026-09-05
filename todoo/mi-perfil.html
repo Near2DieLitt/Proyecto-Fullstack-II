@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonido Vivo - Mis Pedidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="sonido-vivo.css">
+    <link rel="stylesheet" href="registro.css">
+</head>
+<body class="bg-cream">
+    <header class="sticky-top bg-white z-3 border-bottom">
+        <div class="top-banner text-white text-center py-2">
+            🚚 Despacho a todo Chile · Retiro gratis en Viña del Mar · Lunes a Sábado 10:00 - 19:00 hrs
+        </div>
+        <nav class="navbar navbar-expand-lg py-3 px-4 px-lg-5">
+            <a class="navbar-brand logo text-dark" href="sonido-vivo.html"><strong>SONIDO</strong> vivo</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-lg-4">
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="sonido-vivo.html">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="catalogo.html">CATÁLOGO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="novedades.html">NOVEDADES</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">SOBRE NOSOTROS</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="mi-perfil.html">MI PERFIL</a></li>
+                </ul>
+            </div>
+            <div class="d-none d-lg-flex gap-4 align-items-center">
+                <a href="inicio-sesion.html" class="custom-nav-link text-decoration-none"><i class="fa fa-user me-1"></i> INGRESAR</a>
+                <a href="#" class="custom-nav-link text-decoration-none"><i class="fa fa-shopping-cart me-1"></i> CARRITO</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="pedidos-wrapper">
+        <div class="pedidos-header">
+            <h1 class="logo">Mis Pedidos</h1>
+            <p class="text-muted">2 pedidos</p>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TARJETA PEDIDO 1 (En proceso) -->
+        <!-- ========================================== -->
+        <div class="order-card">
+            
+            <!-- Cabecera del pedido -->
+            <div class="order-header">
+                <div class="order-id-date">
+                    <span class="text-muted fs-8 text-uppercase">Pedido</span>
+                    <h2 class="m-0 fs-5 fw-bold">SV-2024-001</h2>
+                    <span class="text-muted fs-8">2024-11-15</span>
+                </div>
+                <div class="order-status-price">
+                    <span class="badge-status bg-light-blue text-blue">Despachado</span>
+                    <span class="order-price">$649.990</span>
+                </div>
+            </div>
+
+            <!-- Línea de tiempo (Stepper) -->
+            <!-- La clase "progress-50" hace que la línea negra llegue hasta la mitad -->
+            <div class="order-progress progress-50">
+                <div class="step completed">
+                    <div class="step-icon">✓</div>
+                    <p>En preparación</p>
+                </div>
+                <div class="step active">
+                    <div class="step-icon">2</div>
+                    <p>Despachado</p>
+                </div>
+                <div class="step pending">
+                    <div class="step-icon">3</div>
+                    <p>Entregado</p>
+                </div>
+            </div>
+
+            <hr class="order-divider">
+
+            <!-- Detalle del producto -->
+            <div class="order-item">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="item-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1514649923863-ceaf75b770ab?w=100&q=80" alt="Guitarra">
+                    </div>
+                    <div>
+                        <p class="m-0 fw-bold fs-6">Stratocaster Player Series</p>
+                        <p class="m-0 text-muted fs-8">Fender · x1</p>
+                    </div>
+                </div>
+                <div class="fw-bold">$649.990</div>
+            </div>
+
+            <!-- Footer / Código de seguimiento -->
+            <div class="order-footer">
+                <span class="fs-8 text-muted">🚚 Código de seguimiento:</span>
+                <span class="tracking-code">SK-845921034</span>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TARJETA PEDIDO 2 (Entregado) -->
+        <!-- ========================================== -->
+        <div class="order-card">
+            
+            <div class="order-header">
+                <div class="order-id-date">
+                    <span class="text-muted fs-8 text-uppercase">Pedido</span>
+                    <h2 class="m-0 fs-5 fw-bold">SV-2024-002</h2>
+                    <span class="text-muted fs-8">2024-11-10</span>
+                </div>
+                <div class="order-status-price">
+                    <span class="badge-status bg-light-green text-green">Entregado</span>
+                    <span class="order-price">$274.970</span>
+                </div>
+            </div>
+
+            <!-- Clase "progress-100" hace que la línea negra llegue al final -->
+            <div class="order-progress progress-100">
+                <div class="step completed">
+                    <div class="step-icon">✓</div>
+                    <p>En preparación</p>
+                </div>
+                <div class="step completed">
+                    <div class="step-icon">✓</div>
+                    <p>Despachado</p>
+                </div>
+                <div class="step completed">
+                    <div class="step-icon">✓</div>
+                    <p>Entregado</p>
+                </div>
+            </div>
+
+            <hr class="order-divider">
+
+            <div class="order-item">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="item-img-placeholder">
+                        <img src="https://images.unsplash.com/photo-1598516802263-8fc27263901b?w=100&q=80" alt="Teclado">
+                    </div>
+                    <div>
+                        <p class="m-0 fw-bold fs-6">Teclado MIDI Akai MPK Mini</p>
+                        <p class="m-0 text-muted fs-8">Akai · x1</p>
+                    </div>
+                </div>
+                <div class="fw-bold">$274.970</div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

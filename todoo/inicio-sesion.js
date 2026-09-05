@@ -44,3 +44,20 @@ function fillDemo(email, password) {
     document.getElementById('Correo').value = email;
     document.getElementById('Clave').value = password;
 }
+
+function ingresar() {
+    let correo = document.getElementById("Correo").value;
+    let clave = document.getElementById("Clave").value;
+
+    if (correo === "" || clave === "") {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    // Aquí normalmente validarías con una base de datos.
+    // Por ahora, simulamos el éxito y guardamos el nombre del usuario en el navegador:
+    localStorage.setItem("nombreUsuario", "Renata"); 
+
+    // Redirigimos a la nueva página de perfil
+    window.location.href = "mi-perfil.html";
+}
