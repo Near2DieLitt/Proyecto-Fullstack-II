@@ -21,11 +21,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav gap-lg-4">
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="sonido-vivo.html">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="catalogo.html">CATÁLOGO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="novedades.html">NOVEDADES</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="#">SOBRE NOSOTROS</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">MI PERFIL</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="mi-perfil.html">MI PERFIL</a></li>
                 </ul>
             </div>
             <div class="d-none d-lg-flex gap-4 align-items-center">
@@ -77,39 +77,69 @@
             </div>
         </div>
 
+        <!-- Fila 3: Fecha y Tipo -->
         <div class="fila-doble">
             <div class="grupo-input">
                 <label>FECHA DE NACIMIENTO</label>
                 <input type="date" id="FechaNac">
             </div>
             <div class="grupo-input">
-                <label>TIPO DE USUARIO *</label>
+                <label>TIPO DE USUARIO <span>*</span></label>
                 <select id="TipoUsuario">
                     <option value="" disabled selected>Seleccionar...</option>
                     <option value="cliente">Cliente</option>
                     <option value="vendedor">Vendedor</option>
                 </select>
             </div>
+        </div> <!-- Cierre crucial de la fila 3 -->
 
+        <!-- Fila 4: Región y Comuna -->
+        <div class="fila-doble">
             <div class="grupo-input">
-                <label>Region *</label>
-                <select id="TipoUsuario">
-                    <option value="" disabled selected>Seleccionar...</option>
+                <label>REGIÓN <span>*</span></label>
+                <select id="Region">
+                    <option value="" disabled selected>Seleccionar región...</option>
                     <option value="Arica y Parinacota">Arica y Parinacota</option>
                     <option value="Tarapacá">Tarapacá</option>
                     <option value="Antofagasta">Antofagasta</option>
                     <option value="Atacama">Atacama</option>
                     <option value="Coquimbo">Coquimbo</option>
-                    <option value="Tarapacá">Tarapacá</option>
-                    <option value="Tarapacá">Tarapacá</option>
+                    <option value="Valparaíso">Valparaíso</option>
+                    <option value="Metropolitana">Metropolitana de Santiago</option>
+                    <option value="O'Higgins">Libertador General Bernardo O'Higgins</option>
+                    <option value="Maule">Maule</option>
+                    <option value="Ñuble">Ñuble</option>
+                    <option value="Biobío">Biobío</option>
+                    <option value="La Araucanía">La Araucanía</option>
+                    <option value="Los Ríos">Los Ríos</option>
+                    <option value="Los Lagos">Los Lagos</option>
+                    <option value="Aysén">Aysén del General Carlos Ibáñez del Campo</option>
+                    <option value="Magallanes">Magallanes y de la Antártica Chilena</option>
                 </select>
             </div>
-        <div class="fila-doble">
             <div class="grupo-input">
-                <label>FECHA DE NACIMIENTO</label>
-                <input type="date" id="FechaNac">
+                <label>COMUNA <span>*</span></label>
+                <select id="Comuna">
+                    <option value="" disabled selected>Seleccionar comuna...</option>
+                    <option value="vina">Viña del Mar</option>
+                    <option value="santiago">Santiago</option>
+                </select>
             </div>
+        </div> <!-- Cierre crucial de la fila 4 -->
 
-
-            
+        <!-- Fila 5: Dirección -->
+        <div class="grupo-input">
+            <label>DIRECCIÓN <span>*</span></label>
+            <input type="text" id="Direccion" placeholder="Calle, número, depto." maxlength="300">
+            <span class="contador">0/300</span>
         </div>
+
+        <!-- Botón -->
+        <button onclick="registrar()" class="btn-submit">CREAR CUENTA</button>
+
+
+    </div>
+
+    <script src="registrarse.js"></script>
+</body>
+</html>
