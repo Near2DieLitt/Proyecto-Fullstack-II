@@ -1,76 +1,566 @@
-// Arreglo de 9 productos (3 guitarras, 3 bajos, 3 baterías)
-let productos = [
-    { 
-        id: 1,
-        marca: "FENDER", 
-        nombre: "Stratocaster Player", 
-        precio: 649990, 
-        descripcion: "Guitarra eléctrica clásica, sonido brillante y versátil.", 
-        imagen: "https://static.sonovente.com/img/library/zoom/61/450/61805_12.jpg" 
-    },
-    { 
-        id: 2,
-        marca: "YAMAHA",
-        nombre: "F310 Acústica",
+let productosMemoria = JSON.parse(localStorage.getItem("productosCatalogo"));
+
+let productosBase = [
+    {
+        id: "GA001",
+        marca: "Yamaha",
+        nombre: "Guitarra Acústica Folk",
         precio: 129990,
-        descripcion: "Guitarra acústica ideal para principiantes. Excelente resonancia.",
-        imagen: "https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=600&q=80" 
+        descripcion: "Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes.",
+        categoria: "Guitarras Acústicas",
+        stock: 8,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 3,
-        marca: "GIBSON",
-        nombre: "Les Paul Standard",
-        precio: 1899900,
-        descripcion: "Cuerpo de caoba y sonido potente. El icono del rock.",
-        imagen: "https://guitarsonmain.com/cdn/shop/files/epiphone-les-paul-standard-60s-figured-iced-tea-burst-w-gigbag-1218883078_2048x.jpg?v=1769862127" 
+    {
+        id: "GA002",
+        marca: "Fender",
+        nombre: "Guitarra Acústica Dreadnought",
+        precio: 189990,
+        descripcion: "Tapa de abeto macizo, brazo de caoba. Sonido cálido y proyectado.",
+        categoria: "Guitarras Acústicas",
+        stock: 5,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 4,
-        marca: "FENDER",
-        nombre: "Jazz Bass Player",
+    {
+        id: "GA003",
+        marca: "Yamaha",
+        nombre: "Guitarra Acústica Clásica 4/4",
+        precio: 89990,
+        descripcion: "Nailon, tapa de abeto. Ideal para estudio y flamenco.",
+        categoria: "Guitarras Acústicas",
+        stock: 10,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GA004",
+        marca: "Takamine",
+        nombre: "Guitarra Electroacústica",
+        precio: 349990,
+        descripcion: "Pickup integrado, afinador incorporado.",
+        categoria: "Guitarras Acústicas",
+        stock: 3,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GA005",
+        marca: "Yamaha",
+        nombre: "Guitarra 3/4 Niños",
+        precio : 79990,
+        descripcion: "Tamaño reducido para niños de 6 a 10 años.",
+        categoria: "Guitarras Acústicas",
+        stock: 6,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GE001",
+        marca: "Squier",
+        nombre: "Guitarra Eléctrica Stratocaster",
+        precio: 249990,
+        descripcion: "Cuerpo de álamo, mástil de arce, pastillas SSS.",
+        categoria: "Guitarras Eléctricas",
+        stock: 5,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GE002",
+        marca: "Epiphone",
+        nombre: "Guitarra Eléctrica Les Paul",
+        precio: 329990,
+        descripcion: "Cuerpo caoba, tapa arce, pastillas humbucker.",
+        categoria: "Guitarras Eléctricas",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GE003",
+        marca: "Epiphone",
+        nombre: "Guitarra Eléctrica SG",
+        precio: 319990,
+        descripcion: "Cuerpo caoba, mástil caoba, 2 humbuckers.",
+        categoria: "Guitarras Eléctricas",
+        stock: 3,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GE004",
+        marca: "Squier",
+        nombre: "Guitarra Eléctrica Telecaster",
+        precio: 239990,
+        descripcion: "Cuerpo álamo, clavijero vintage, 2 pastillas single.",
+        categoria: "Guitarras Eléctricas",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "GE005",
+        marca: "Epiphone",
+        nombre: "Guitarra Eléctrica Semi-hollow",
+        precio: 549990,
+        descripcion: "Semi-hueca, 2 humbuckers, ideal para jazz y blues.",
+        categoria: "Guitarras Eléctricas",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "BA001",
+        marca: "Squier",
+        nombre: "Bajo Eléctrico 4 Cuerdas",
+        precio: 299990,
+        descripcion: "Pickup PJ, cuerpo álamo, mástil arce.",
+        categoria: "Bajos Eléctricos",
+        stock: 5,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "BA002",
+        marca: "Fender",
+        nombre: "Bajo Eléctrico Jazz Bass",
+        precio: 699990,
+        descripcion: "Alder body, 2 Alnico V Jazz single-coil.",
+        categoria: "Bajos Eléctricos",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "BA003",
+        marca: "Yamaha",
+        nombre: "Bajo Acústico 4 Cuerdas",
+        precio: 429990,
+        descripcion: "Electroacústico, afinador incorporado.",
+        categoria: "Bajos Eléctricos",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "BT001",
+        marca: "Pearl",
+        nombre: "Batería Acústica 5 piezas",
         precio: 599990,
-        descripcion: "Bajo de 4 cuerdas con tono definido y cuello cómodo.",
-        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJQ-XZG1aPbq9XfgkyYAgc4_lDqo_xbRVU8TnUU-7bSflNue_Qj3lvcYE&s=10" 
+        descripcion: "Incluye stands, platillos y pedal de bombo.",
+        categoria: "Baterías",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 5, 
-        marca: "IBANEZ", 
-        nombre: "SR300E", 
-        precio: 299990, 
-        descripcion: "Bajo moderno, ultraligero y con ecualizador activo.", 
-        imagen: "https://dojiw2m9tvv09.cloudfront.net/69504/product/X_01c500a16a5afded9b450f5e020121388d19b4d1444352.jpg?52&t=1787607877" 
+    {
+        id: "BT002",
+        marca: "Roland",
+        nombre: "Batería Electrónica 8 pads",
+        precio: 799990,
+        descripcion: "Módulo TD-02, 8 pads de goma, pedal hi-hat.",
+        categoria: "Baterías",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 6, 
-        marca: "FENDER", 
-        nombre: "Precision Bass", 
-        precio: 549990, 
-        descripcion: "El estándar de la industria. Sonido profundo y clásico.", 
-        imagen: "https://dojiw2m9tvv09.cloudfront.net/69504/product/X_01d0f6cb0821e4fe98341c1e7fd6f50d5756d336b27641.jpg?52&t=1787542570" 
+    {
+        id: "BT003",
+        marca: "Pearl",
+        nombre: "Caja Snare 14\"",
+        precio: 89990,
+        descripcion: "Acero, 14x5\", 10 tensores.",
+        categoria: "Baterías",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 7, 
-        marca: "PEARL", 
-        nombre: "Export EXX725S", 
-        precio: 899990, 
-        descripcion: "Batería acústica completa. Herrajes de alta resistencia.", 
-        imagen: "https://www.altomusic.com/cdn/shop/files/EXX725SC708_0_1.jpg?v=1692033388&width=1946" 
+    {
+        id: "BT004",
+        marca: "Zildjian",
+        nombre: "Platillo Hi-Hat 14\"",
+        precio: 149990,
+        descripcion: "Latón B20, sonido brillante y claro.",
+        categoria: "Baterías",
+        stock: 3,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 8, 
-        marca: "ROLAND", 
-        nombre: "TD-17KVX Electrónica", 
-        precio: 1299900, 
-        descripcion: "Batería electrónica profesional con parches de malla.", 
-        imagen: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=600&q=80" 
+    {
+        id: "BT005",
+        marca: "Zildjian",
+        nombre: "Platillo Crash 16\"",
+        precio: 129990,
+        descripcion: "Latón B20, ataque rápido.",
+        categoria: "Baterías",
+        stock: 3,
+        stockCritico: 2,
+        imagen: ""
     },
-    { 
-        id: 9, 
-        marca: "ALESIS", 
-        nombre: "Nitro Mesh Kit", 
-        precio: 399990, 
-        descripcion: "Batería electrónica ideal para practicar en casa en silencio.", 
-        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-M8opmh0Y80zfFD7vrnDUFNpE9OI8p9KecCQjuhVCggjPqv0Yw_elfit&s=10" 
+    {
+        id: "TC001",
+        marca: "Yamaha",
+        nombre: "Teclado Digital 61 teclas",
+        precio: 249990,
+        descripcion: "61 teclas sensibles al tacto, 622 voces.",
+        categoria: "Teclados y Pianos",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "TC002",
+        marca: "Yamaha",
+        nombre: "Piano Digital 88 teclas",
+        precio: 499990,
+        descripcion: "88 teclas pesadas, 10 voces, pedal sustain incluido.",
+        categoria: "Teclados y Pianos",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "TC003",
+        marca: "Arturia",
+        nombre: "Sintetizador 49 teclas",
+        precio: 129990,
+        descripcion: "MIDI controller, 49 mini teclas.",
+        categoria: "Teclados y Pianos",
+        stock: 5,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "TC004",
+        marca: "M-Audio",
+        nombre: "Teclado MIDI 88 teclas",
+        precio: 399990,
+        descripcion: "88 teclas martillo, sin sonidos propios.",
+        categoria: "Teclados y Pianos",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AM001",
+        marca: "Fender",
+        nombre: "Amplificador Guitarra 15W",
+        precio: 99990,
+        descripcion: "15W, distorsión incorporada, entrada auxiliar.",
+        categoria: "Amplificadores",
+        stock: 5,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AM002",
+        marca: "Marshall",
+        nombre: "Amplificador Guitarra 40W",
+        precio: 299990,
+        descripcion: "40W, 4 canales, efectos digitales integrados.",
+        categoria: "Amplificadores",
+        stock: 3,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AM003",
+        marca: "Hartke",
+        nombre: "Amplificador Bajo 100W",
+        precio: 449990,
+        descripcion: "100W, tweeter integrado, ecualizador de 4 bandas.",
+        categoria: "Amplificadores",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AM004",
+        marca: "Fishman",
+        nombre: "Amplificador Acústico 40W",
+        precio: 499990,
+        descripcion: "60W, 2 canales, reverb y chorus incorporados.",
+        categoria: "Amplificadores",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "MI001",
+        marca: "Shure",
+        nombre: "Micrófono Dinámico Cardioide",
+        precio: 149990,
+        descripcion: "Estándar industria para voz en vivo.",
+        categoria: "Micrófonos",
+        stock: 8,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "MI002",
+        marca: "Shure",
+        nombre: "Micrófono Dinámico Instrumento",
+        precio: 139990,
+        descripcion: "Ideal para captura de instrumentos y amplificadores.",
+        categoria: "Micrófonos",
+        stock: 6,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "MI003",
+        marca: "Audio-Tech.",
+        nombre: "Micrófono Condensador",
+        precio: 199990,
+        descripcion: "Cardioide, XLR, ideal para grabación en estudio.",
+        categoria: "Micrófonos",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "MI004",
+        marca: "Blue",
+        nombre: "Micrófono USB de Condensador",
+        precio: 299990,
+        descripcion: "USB, 4 patrones polares, ideal para streaming y podcast.",
+        categoria: "Micrófonos",
+        stock: 5,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "PE001",
+        marca: "Boss",
+        nombre: "Pedal Distorsión",
+        precio: 79990,
+        descripcion: "Clásico pedal de distorsión, 3 controles.",
+        categoria: "Pedales de Efectos",
+        stock: 7,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "PE002",
+        marca: "Boss",
+        nombre: "Pedal Reverb",
+        precio: 179990,
+        descripcion: "8 modos de reverb, control de shimmer.",
+        categoria: "Pedales de Efectos",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "PE003",
+        marca: "Boss",
+        nombre: "Pedal Multi-efectos",
+        precio: 349990,
+        descripcion: "Diseño tipo pedalboard, 8 efectos simultáneos.",
+        categoria: "Pedales de Efectos",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "PE004",
+        marca: "Boss",
+        nombre: "Pedal Tuner Cromático",
+        precio: 89990,
+        descripcion: "Afinador cromático, indicador de tono.",
+        categoria: "Pedales de Efectos",
+        stock: 8,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "PE005",
+        marca: "MXR",
+        nombre: "Pedal Delay",
+        precio: 179990,
+        descripcion: "Delay analógico cálido, tiempo 600ms.",
+        categoria: "Pedales de Efectos",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "PE006",
+        marca: "Ibanez",
+        nombre: "Pedal Overdrive",
+        precio: 99990,
+        descripcion: "Tube Screamer clásico, sonido suave y orgánico.",
+        categoria: "Pedales de Efectos",
+        stock: 6,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC001",
+        marca: "Ernie Ball",
+        nombre: "Cuerdas Guitarra Eléctrica 09-42",
+        precio: 8990,
+        descripcion: "Juego 6 cuerdas, calibre ligero.",
+        categoria: "Accesorios",
+        stock: 25,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC002",
+        marca: "Ernie Ball",
+        nombre: "Cuerdas Guitarra Acústica 12-53",
+        precio: 10990,
+        descripcion: "Bronce fósforo, sonido cálido.",
+        categoria: "Accesorios",
+        stock: 20,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC003",
+        marca: "Ernie Ball",
+        nombre: "Cuerdas Bajo 45-105",
+        precio: 14990,
+        descripcion: "Cuerdas de níquel enrollado, set 4 cuerdas.",
+        categoria: "Accesorios",
+        stock: 12,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC004",
+        marca: "Fender",
+        nombre: "Púas de Guitarra x10 (0.73mm)",
+        precio: 3990,
+        descripcion: "Celulosa, grosor medio.",
+        categoria: "Accesorios",
+        stock: 50,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC005",
+        marca: "Dunlop",
+        nombre: "Capotraste Guitarra",
+        precio: 12990,
+        descripcion: "Capotraste de resorte, compatible 6 cuerdas.",
+        categoria: "Accesorios",
+        stock: 15,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC006",
+        marca: "Snark",
+        nombre: "Afinador de Clip",
+        precio: 8990,
+        descripcion: "Afinador cromático de clip, pantalla giratoria.",
+        categoria: "Accesorios",
+        stock: 20,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC007",
+        marca: "Monster",
+        nombre: "Cable Instrumento 3m",
+        precio: 12990,
+        descripcion: "Cable trenzado, conectores dorados, 3 metros.",
+        categoria: "Accesorios",
+        stock: 15,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC008",
+        marca: "Monster",
+        nombre: "Cable Instrumento 6m",
+        precio: 17990,
+        descripcion: "Cable trenzado, conectores dorados, 6 metros.",
+        categoria: "Accesorios",
+        stock: 10,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC009",
+        marca: "Hercules",
+        nombre: "Soporte Guitarra de Piso",
+        precio: 22990,
+        descripcion: "Soporte plegable con enganche automático.",
+        categoria: "Accesorios",
+        stock: 12,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "AC010",
+        marca: "Hercules",
+        nombre: "Soporte Guitarra de Pared",
+        precio: 18990,
+        descripcion: "Montaje a pared, enganche automático.",
+        categoria: "Accesorios",
+        stock: 10,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "ES001",
+        marca: "Focusrite",
+        nombre: "Interfaz de Audio 2x2 USB",
+        precio: 149990,
+        descripcion: "1 entrada XLR+instrumento, 2 salidas, 24bit/192kHz.",
+        categoria: "Estudio y Grabación",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "ES002",
+        marca: "Audio-Tech.",
+        nombre: "Auriculares de Estudio",
+        precio: 79990,
+        descripcion: "Circumaurales, respuesta 15Hz-20kHz.",
+        categoria: "Estudio y Grabación",
+        stock: 6,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "ES003",
+        marca: "Audio-Tech.",
+        nombre: "Auriculares de Estudio Pro",
+        precio: 219990,
+        descripcion: "Referencia de industria, sonido neutro y detallado.",
+        categoria: "Estudio y Grabación",
+        stock: 4,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "ES004",
+        marca: "Yamaha",
+        nombre: "Monitor de Estudio 5\"",
+        precio: 349990,
+        descripcion: "Altavoz activo, respuesta plana, ideal mezcla.",
+        categoria: "Estudio y Grabación",
+        stock: 2,
+        stockCritico: 2,
+        imagen: ""
+    },
+    {
+        id: "ES005",
+        marca: "Sennheiser",
+        nombre: "Pop Filter para Micrófono",
+        precio: 14990,
+        descripcion: "Doble malla, brazo flexible con clip.",
+        categoria: "Estudio y Grabación",
+        stock: 8,
+        stockCritico: 2,
+        imagen: ""
     }
 ];
 
