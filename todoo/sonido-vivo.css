@@ -645,23 +645,20 @@ label {
     text-transform: uppercase;
 }
 
-input, select {
+input, select, textarea {
     width: 100%;
     padding: 14px;
-    border: 1px solid var(--color-border, #E0D8CE);
+    border: 1px solid var(--color-border);
     background-color: transparent;
     font-size: 14px;
     outline: none;
-    color: var(--color-foreground, #1A1614);
+    color: var(--color-foreground);
+    font-family: Arial, sans-serif;
 }
 
-select {
-    cursor: pointer;
-}
-
-input:focus, select:focus {
-    border-color: var(--color-ring, #1A1614);
-    box-shadow: 0 0 0 1px var(--color-ring, #1A1614);
+input:focus, select:focus, textarea:focus {
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 1px var(--color-ring);
 }
 
 /* El asterisco color ámbar */
