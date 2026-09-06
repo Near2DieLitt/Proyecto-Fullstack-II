@@ -1,3 +1,4 @@
+// 1. Intentamos leer los productos creados en el administrador
 let productosMemoria = JSON.parse(localStorage.getItem("productosCatalogo"));
 
 let productosBase = [
@@ -564,44 +565,47 @@ let productosBase = [
     }
 ];
 
-// Buscamos el contenedor del HTML
+// 3. Cargamos los datos guardados en memoria o inicializamos con la base del Excel
+let productos = productosMemoria ? productosMemoria : productosBase;
+
+// Si es la primera vez que entramos, guardamos el arreglo completo en localStorage
+if (!productosMemoria) {
+    localStorage.setItem("productosCatalogo", JSON.stringify(productosBase));
+}
+
+// 4. Inyectamos los productos en el HTML
 let lista = document.getElementById("listaProductos");
 
-// Recorremos el arreglo e inyectamos las tarjetas usando tu diseño
+// Limpiamos la lista por seguridad antes de llenarla
+lista.innerHTML = "";
+
 for (let i = 0; i < productos.length; i++) {
+    // Le damos formato al precio para que se vea como $129.990 en lugar de $129990
+    let precioFormateado = new Intl.NumberFormat('es-CL').format(productos[i].precio);
+
     lista.innerHTML += `
         <div class="col-12 col-sm-6 col-lg-4">
             <div class="product-card">
                 <div class="product-img-wrapper bg-white border">
                     <img src="${productos[i].imagen}" alt="${productos[i].nombre}">
-                    <button class="btn btn-dark w-100 rounded-0 add-to-cart-btn" onclick="verDetalle(${productos[i].id})">
+                    <button class="btn btn-dark w-100 rounded-0 add-to-cart-btn" onclick="verDetalle('${productos[i].id}')">
                         VER DETALLE
                     </button>
                 </div>
                 <div class="mt-3 text-center">
                     <p class="brand-text">${productos[i].marca}</p>
                     <h3 class="product-title">${productos[i].nombre}</h3>
-                    <p class="product-price">$${productos[i].precio}</p>
+                    <p class="product-price">$${precioFormateado}</p>
                 </div>
             </div>
         </div>
     `;
 }
 
-// Función para guardar en localStorage y redirigir
-function verDetalle(id) {
-    let productoSeleccionado;
-    
-    // Buscamos el producto exacto por su ID
-    for (let i = 0; i < productos.length; i++) {
-        if (productos[i].id === id) {
-            productoSeleccionado = productos[i];
-        }
-    }
-
-    // Guardamos como texto (String) en el navegador
-    localStorage.setItem("producto", JSON.stringify(productoSeleccionado));
-
-    // Redirigimos a la página de detalle
-    window.location.href = "detalle.html";
-}
+// 5. Función para guardar el producto seleccionado y llevar a la vista de detalle pero no se si se vera asi realmente
+//lo deje como comentario en caso de que se tenga q hacer
+//function verDetalle(id) {
+    //let productoSeleccionado = productos.find(p => p.id === id);
+    //localStorage.setItem("producto", JSON.stringify(productoSeleccionado));
+    //window.location.href = ""; 
+//}
