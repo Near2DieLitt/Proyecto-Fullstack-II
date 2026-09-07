@@ -603,9 +603,8 @@ for (let i = 0; i < productos.length; i++) {
 }
 
 // 5. Función para guardar el producto seleccionado y llevar a la vista de detalle pero no se si se vera asi realmente
-//lo deje como comentario en caso de que se tenga q hacer
-//function verDetalle(id) {
-    //let productoSeleccionado = productos.find(p => p.id === id);
-    //localStorage.setItem("producto", JSON.stringify(productoSeleccionado));
-    //window.location.href = ""; 
-//}
+function verDetalle(id) {
+    let productoSeleccionado = productos.find(p => p.id === id);
+    localStorage.setItem("producto", JSON.stringify(productoSeleccionado));
+    window.location.href = "detalle.html"; 
+}
