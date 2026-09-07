@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sonido Vivo - Registrarse</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sonido-vivo.css">
     <link rel="stylesheet" href="registro.css">
@@ -23,9 +23,10 @@
                 <ul class="navbar-nav gap-lg-4">
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="sonido-vivo.html">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="catalogo.html">CATÁLOGO</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">NOVEDADES</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">SOBRE NOSOTROS</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">MI PERFIL</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="novedades.html">NOVEDADES</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="sobre-nosotros.html">SOBRE NOSOTROS</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="contacto.html">CONTACTO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="inicio-sesion.html">MI PERFIL</a></li>
                 </ul>
             </div>
             <div class="d-none d-lg-flex gap-4 align-items-center">
@@ -36,112 +37,106 @@
     </header>
 
     <main>
+        <div class="login caja-registro">
+            <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
 
-    <div class="login caja-registro">
-        
-        <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
+            <div class="pestanas">
+                <button onclick="window.location.href='inicio-sesion.html'">INICIAR SESIÓN</button>
+                <button class="activa">REGISTRARSE</button>
+            </div>
 
-        <div class="pestanas">
-            <button onclick="window.location.href='inicio-sesion.html'">INICIAR SESIÓN</button>
-            <button class="activa">REGISTRARSE</button>
+            <div class="grupo-input">
+                <label>RUN *</label>
+                <input type="text" id="Run" placeholder="Sin puntos ni guion, ej: 12345678K">
+            </div>
+
+            <div class="fila-doble">
+                <div class="grupo-input">
+                    <label>NOMBRE *</label>
+                    <input type="text" id="Nombre" placeholder="Tu nombre" maxlength="50">
+                    <span class="contador">0/50</span>
+                </div>
+                <div class="grupo-input">
+                    <label>APELLIDOS *</label>
+                    <input type="text" id="Apellidos" placeholder="Apellidos" maxlength="100">
+                    <span class="contador">0/100</span>
+                </div>
+            </div>
+
+            <div class="grupo-input">
+                <label>CORREO ELECTRÓNICO *</label>
+                <input type="email" id="CorreoReg" placeholder="nombre@ejemplo.com">
+            </div>
+
+            <div class="fila-doble">
+                <div class="grupo-input">
+                    <label>CONTRASEÑA *</label>
+                    <input type="password" id="ClaveReg" placeholder="4 a 10 caracteres" maxlength="10">
+                </div>
+                <div class="grupo-input">
+                    <label>CONFIRMAR *</label>
+                    <input type="password" id="ClaveConf" placeholder="Repite" maxlength="10">
+                </div>
+            </div>
+
+            <div class="fila-doble">
+                <div class="grupo-input">
+                    <label>FECHA DE NACIMIENTO</label>
+                    <input type="date" id="FechaNac">
+                </div>
+                <div class="grupo-input">
+                    <label>TIPO DE USUARIO <span>*</span></label>
+                    <select id="TipoUsuario">
+                        <option value="" disabled selected>Seleccionar...</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="vendedor">Vendedor</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="fila-doble">
+                <div class="grupo-input">
+                    <label>REGIÓN <span>*</span></label>
+                    <select id="Region">
+                        <option value="" disabled selected>Seleccionar región...</option>
+                        <option value="Arica y Parinacota">Arica y Parinacota</option>
+                        <option value="Tarapacá">Tarapacá</option>
+                        <option value="Antofagasta">Antofagasta</option>
+                        <option value="Atacama">Atacama</option>
+                        <option value="Coquimbo">Coquimbo</option>
+                        <option value="Valparaíso">Valparaíso</option>
+                        <option value="Metropolitana">Metropolitana de Santiago</option>
+                        <option value="O'Higgins">Libertador General Bernardo O'Higgins</option>
+                        <option value="Maule">Maule</option>
+                        <option value="Ñuble">Ñuble</option>
+                        <option value="Biobío">Biobío</option>
+                        <option value="La Araucanía">La Araucanía</option>
+                        <option value="Los Ríos">Los Ríos</option>
+                        <option value="Los Lagos">Los Lagos</option>
+                        <option value="Aysén">Aysén del General Carlos Ibáñez del Campo</option>
+                        <option value="Magallanes">Magallanes y de la Antártica Chilena</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label>COMUNA <span>*</span></label>
+                    <select id="Comuna">
+                        <option value="" disabled selected>Seleccionar comuna...</option>
+                        <option value="vina">Viña del Mar</option>
+                        <option value="santiago">Santiago</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grupo-input">
+                <label>DIRECCIÓN <span>*</span></label>
+                <input type="text" id="Direccion" placeholder="Calle, número, depto." maxlength="300">
+                <span class="contador">0/300</span>
+            </div>
+
+            <button onclick="registrar()" class="btn-submit">CREAR CUENTA</button>
         </div>
+    </main>
 
-        <div class="grupo-input">
-            <label>RUN *</label>
-            <input type="text" id="Run" placeholder="Sin puntos ni guion, ej: 12345678K">
-        </div>
-
-        <div class="fila-doble">
-            <div class="grupo-input">
-                <label>NOMBRE *</label>
-                <input type="text" id="Nombre" placeholder="Tu nombre" maxlength="50">
-                <span class="contador">0/50</span>
-            </div>
-            <div class="grupo-input">
-                <label>APELLIDOS *</label>
-                <input type="text" id="Apellidos" placeholder="Apellidos" maxlength="100">
-                <span class="contador">0/100</span>
-            </div>
-        </div>
-
-        <div class="grupo-input">
-            <label>CORREO ELECTRÓNICO *</label>
-            <input type="email" id="CorreoReg" placeholder="nombre@ejemplo.com">
-        </div>
-
-        <div class="fila-doble">
-            <div class="grupo-input">
-                <label>CONTRASEÑA *</label>
-                <input type="password" id="ClaveReg" placeholder="4 a 10 caracteres" maxlength="10">
-            </div>
-            <div class="grupo-input">
-                <label>CONFIRMAR *</label>
-                <input type="password" id="ClaveConf" placeholder="Repite" maxlength="10">
-            </div>
-        </div>
-
-        <!-- Fila 3: Fecha y Tipo -->
-        <div class="fila-doble">
-            <div class="grupo-input">
-                <label>FECHA DE NACIMIENTO</label>
-                <input type="date" id="FechaNac">
-            </div>
-            <div class="grupo-input">
-                <label>TIPO DE USUARIO <span>*</span></label>
-                <select id="TipoUsuario">
-                    <option value="" disabled selected>Seleccionar...</option>
-                    <option value="cliente">Cliente</option>
-                    <option value="vendedor">Vendedor</option>
-                </select>
-            </div>
-        </div> <!-- Cierre crucial de la fila 3 -->
-
-        <!-- Fila 4: Región y Comuna -->
-        <div class="fila-doble">
-            <div class="grupo-input">
-                <label>REGIÓN <span>*</span></label>
-                <select id="Region">
-                    <option value="" disabled selected>Seleccionar región...</option>
-                    <option value="Arica y Parinacota">Arica y Parinacota</option>
-                    <option value="Tarapacá">Tarapacá</option>
-                    <option value="Antofagasta">Antofagasta</option>
-                    <option value="Atacama">Atacama</option>
-                    <option value="Coquimbo">Coquimbo</option>
-                    <option value="Valparaíso">Valparaíso</option>
-                    <option value="Metropolitana">Metropolitana de Santiago</option>
-                    <option value="O'Higgins">Libertador General Bernardo O'Higgins</option>
-                    <option value="Maule">Maule</option>
-                    <option value="Ñuble">Ñuble</option>
-                    <option value="Biobío">Biobío</option>
-                    <option value="La Araucanía">La Araucanía</option>
-                    <option value="Los Ríos">Los Ríos</option>
-                    <option value="Los Lagos">Los Lagos</option>
-                    <option value="Aysén">Aysén del General Carlos Ibáñez del Campo</option>
-                    <option value="Magallanes">Magallanes y de la Antártica Chilena</option>
-                </select>
-            </div>
-            <div class="grupo-input">
-                <label>COMUNA <span>*</span></label>
-                <select id="Comuna">
-                    <option value="" disabled selected>Seleccionar comuna...</option>
-                    <option value="vina">Viña del Mar</option>
-                    <option value="santiago">Santiago</option>
-                </select>
-            </div>
-        </div> <!-- Cierre crucial de la fila 4 -->
-
-        <!-- Fila 5: Dirección -->
-        <div class="grupo-input">
-            <label>DIRECCIÓN <span>*</span></label>
-            <input type="text" id="Direccion" placeholder="Calle, número, depto." maxlength="300">
-            <span class="contador">0/300</span>
-        </div>
-
-        <!-- Botón -->
-        <button onclick="registrar()" class="btn-submit">CREAR CUENTA</button>
-    </div>
-
-    
     <footer class="bg-dark text-white py-5 px-4 px-lg-5">
         <div class="container py-4">
             <div class="row g-4 justify-content-between">
@@ -175,7 +170,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="registrarse.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="seguridad.js"></script>
 </body>
 </html>

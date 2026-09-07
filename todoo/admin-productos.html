@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Productos - Sonido Vivo</title>
-    <!-- Frameworks y estilos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sonido-vivo.css">
@@ -22,19 +21,14 @@
             
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAdmin">
                 <ul class="navbar-nav gap-lg-4 align-items-center">
-                    <!-- Enlace para volver a la tienda pública -->
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link text-primary" href="catalogo.html"><i class="fa fa-store me-1"></i> VER TIENDA</a>
                     </li>
-                    
-                    <!-- Enlaces del panel -->
                     <li class="nav-item">
                         <a class="nav-link custom-nav-link text-dark fw-bold" href="admin-productos.html">PRODUCTOS</a>
                     </li>
-                    
-                    <!-- Botón de cerrar sesión -->
                     <li class="nav-item">
-                        <a class="nav-link custom-nav-link text-danger" href="inicio-sesion.html"><i class="fa fa-sign-out-alt me-1"></i> SALIR</a>
+                        <a class="nav-link custom-nav-link text-danger" href="#" onclick="cerrarSesion()"><i class="fa fa-sign-out-alt me-1"></i> SALIR</a>
                     </li>
                 </ul>
             </div>
@@ -45,11 +39,9 @@
     <main class="container py-5 min-vh-100">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="playfair-font fw-bold">Mantenedor de Productos</h1>
-            <!-- Botón que abre la ventana modal para crear un producto -->
             <button class="btn btn-custom-dark" data-bs-toggle="modal" data-bs-target="#modalProducto" onclick="prepararCrear()">+ NUEVO PRODUCTO</button>
         </div>
 
-        <!-- Tabla de Inventario -->
         <div class="bg-white p-4 border rounded shadow-sm overflow-auto">
             <table class="table align-middle table-hover">
                 <thead class="table-dark">
@@ -79,7 +71,6 @@
                 </div>
                 <div class="modal-body p-4">
                     <form id="formProducto">
-                        <!-- Campo oculto para saber si estamos creando (vacío) o editando (tiene un índice) -->
                         <input type="hidden" id="prodIndex"> 
                         
                         <div class="mb-3">
@@ -136,8 +127,8 @@
         </div>
     </div>
 
-  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="admin-productos.js"></script>
+    <script src="seguridad.js"></script>
 </body>
 </html>
