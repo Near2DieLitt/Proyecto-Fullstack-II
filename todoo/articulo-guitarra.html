@@ -10,7 +10,6 @@
 </head>
 <body class="bg-cream">
     
-    <!-- HEADER -->
     <header class="sticky-top bg-white z-3 border-bottom">
         <div class="top-banner text-white text-center py-2">
             🚚 Despacho a todo Chile · Retiro gratis en Viña del Mar · Lunes a Sábado 10:00 - 19:00 hrs
@@ -19,32 +18,29 @@
             <a class="navbar-brand logo text-dark" href="sonido-vivo.html"><strong>SONIDO</strong> <span style="font-style: italic; color: #7A6A5E;">vivo</span></a>
             <div class="collapse navbar-collapse justify-content-center">
                 <ul class="navbar-nav gap-lg-3">
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">INICIO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="sonido-vivo.html">INICIO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="catalogo.html">CATÁLOGO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="novedades.html" style="color: #1A1614 !important;">NOVEDADES</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">SOBRE NOSOTROS</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">CONTACTO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="sobre-nosotros.html">SOBRE NOSOTROS</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="contacto.html">CONTACTO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="inicio-sesion.html">MI PERFIL</a></li>
                 </ul>
             </div>
             
-            <!-- BOTÓN ADMIN OCULTO (Para la simulación de roles) -->
             <div class="d-none d-lg-flex gap-3 align-items-center">
                 <span id="badge-admin" class="badge border text-muted fw-normal d-none" style="background-color: #F9F6F2;">admin</span>
                 <a href="admin.html" id="boton-admin" class="custom-nav-link text-decoration-none d-none">ADMIN</a>
-                <a href="#" class="custom-nav-link text-decoration-none" onclick="abrirCarrito(event)"><i class="fa fa-shopping-bag me-1"></i> CARRITO</a>
+                <a href="carrito.html" class="custom-nav-link text-decoration-none" onclick="abrirCarrito(event)"><i class="fa fa-shopping-bag me-1"></i> CARRITO</a>
             </div>
         </nav>
     </header>
 
-    <!-- BREADCRUMBS -->
     <div class="breadcrumbs-container">
         <div class="breadcrumbs">
             <a href="#">Inicio</a> / <a href="novedades.html">Novedades</a> / <span>Cómo elegir tu primera guitarra eléctrica</span>
         </div>
     </div>
 
-    <!-- CONTENIDO DEL ARTÍCULO -->
     <main class="article-detail-container">
         
         <div class="article-meta mb-4">
@@ -59,7 +55,6 @@
             <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1200" alt="Tocando guitarra acústica/eléctrica">
         </div>
 
-        <!-- Texto de lectura -->
         <div class="article-body">
             <p>Elegir la primera guitarra eléctrica puede ser abrumador. Entras a una tienda (o a nuestro catálogo) y te encuentras con decenas de formas, colores y configuraciones distintas. Para tomar la mejor decisión, debes enfocarte en cuatro factores clave: el cuerpo, las pastillas, el mástil y tu presupuesto.</p>
             
@@ -80,7 +75,6 @@
 
         <hr class="blog-divider mt-5">
 
-        <!-- FOOTER DEL ARTÍCULO -->
         <div class="article-footer">
             <a href="novedades.html" class="back-link">← VOLVER A NOVEDADES</a>
             <button class="btn-catalog">VER CATÁLOGO</button>
@@ -99,9 +93,9 @@
                 <div class="col-12 col-md-3">
                     <h6 class="fw-bold mb-3 fs-8 text-uppercase tracking-1">Navegación</h6>
                     <ul class="list-unstyled d-flex flex-column gap-2 fs-7 text-secondary">
-                        <li><a href="#" class="text-decoration-none text-secondary">Catálogo</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary">Mapa y contacto</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary">Mis pedidos</a></li>
+                        <li><a href="catalogo.html" class="text-decoration-none text-secondary">Catálogo</a></li>
+                        <li><a href="nuestra-tienda.html" class="text-decoration-none text-secondary">Mapa y contacto</a></li>
+                        <li><a href="mi-perfil.html" class="text-decoration-none text-secondary">Mis pedidos</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-4">
@@ -124,6 +118,6 @@
 
     <script src="articulo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="seguridad.js"></script>
 </body>
 </html>

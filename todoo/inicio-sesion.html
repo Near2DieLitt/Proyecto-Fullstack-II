@@ -24,7 +24,8 @@
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="catalogo.html">CATÁLOGO</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="novedades.html">NOVEDADES</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-link" href="sobre-nosotros.html">SOBRE NOSOTROS</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="mi-perfil.html">MI PERFIL</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="contacto.html">CONTACTO</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-link" href="inicio-sesion.html">MI PERFIL</a></li>
                 </ul>
             </div>
             <div class="d-none d-lg-flex gap-4 align-items-center">
@@ -33,27 +34,25 @@
             </div>
         </nav>
     </header>
-</head><div class="login">
-        
-        <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
 
+    <main>
+        <div class="login">
+            <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
+            
+            <div class="pestanas">
+                <button class="activa">INICIAR SESIÓN</button>
+                <button onclick="window.location.href='registrarse.html'">REGISTRARSE</button>
+            </div>
 
-        <div class="pestanas">
-            <button class="activa">INICIAR SESIÓN</button>
-            <button onclick="window.location.href='registrarse.html'">REGISTRARSE</button>
+            <label>CORREO ELECTRÓNICO *</label>
+            <input type="email" id="Correo" placeholder="nombre@ejemplo.com">
+
+            <label>CONTRASEÑA *</label>
+            <input type="password" id="Clave" placeholder="4 a 10 caracteres" maxlength="10">
+
+            <button onclick="ingresar()">INGRESAR</button>
         </div>
-
-
-        <label>CORREO ELECTRÓNICO *</label>
-        <input type="email" id="Correo" placeholder="nombre@ejemplo.com">
-
-        <label>CONTRASEÑA *</label>
-        <input type="password" id="Clave" placeholder="4 a 10 caracteres" maxlength="10">
-
-
-        <button onclick="ingresar()">INGRESAR</button>
-
-    </div>
+    </main>
 
     <footer class="bg-dark text-white py-5 px-4 px-lg-5">
         <div class="container py-4">
@@ -65,9 +64,9 @@
                 <div class="col-12 col-md-3">
                     <h6 class="fw-bold mb-3 fs-8 text-uppercase tracking-1">Navegación</h6>
                     <ul class="list-unstyled d-flex flex-column gap-2 fs-7 text-secondary">
-                        <li><a href="#" class="text-decoration-none text-secondary">Catálogo</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary">Mapa y contacto</a></li>
-                        <li><a href="#" class="text-decoration-none text-secondary">Mis pedidos</a></li>
+                        <li><a href="catalogo.html" class="text-decoration-none text-secondary">Catálogo</a></li>
+                        <li><a href="nuestra-tienda.html" class="text-decoration-none text-secondary">Mapa y contacto</a></li>
+                        <li><a href="mi-perfil.html" class="text-decoration-none text-secondary">Mis pedidos</a></li>
                     </ul>
                 </div>
                 <div class="col-12 col-md-4">
@@ -88,8 +87,10 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="inicio-sesion.js"></script>
+    <script src="seguridad.js"></script>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
