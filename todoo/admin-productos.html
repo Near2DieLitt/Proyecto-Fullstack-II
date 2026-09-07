@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrar Productos - Sonido Vivo</title>
+    <!-- Frameworks y estilos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="sonido-vivo.css">
@@ -11,27 +12,50 @@
 </head>
 <body class="bg-cream">
     
+    <!-- NAVBAR ADMIN -->
     <header class="sticky-top bg-white z-3 border-bottom">
         <nav class="navbar navbar-expand-lg py-3 px-4 px-lg-5">
-            <a class="navbar-brand logo text-dark" href="#"><strong>SONIDO</strong> vivo <span class="fs-6 text-muted">ADMIN</span></a>
-            <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav gap-lg-4">
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">PRODUCTOS</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link" href="#">USUARIOS</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-link text-danger" href="inicio-sesion.html">SALIR</a></li>
+            <a class="navbar-brand logo text-dark" href="admin-productos.html"><strong>SONIDO</strong> vivo <span class="fs-6 text-muted">ADMIN</span></a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAdmin">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAdmin">
+                <ul class="navbar-nav gap-lg-4 align-items-center">
+                    <!-- Enlace para volver a la tienda pública -->
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link text-primary" href="catalogo.html"><i class="fa fa-store me-1"></i> VER TIENDA</a>
+                    </li>
+                    
+                    <!-- Enlaces del panel -->
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link text-dark fw-bold" href="admin-productos.html">PRODUCTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link" href="admin-usuarios.html">USUARIOS</a>
+                    </li>
+                    
+                    <!-- Botón de cerrar sesión -->
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav-link text-danger" href="inicio-sesion.html"><i class="fa fa-sign-out-alt me-1"></i> SALIR</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="container py-5 min-vh-100">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="playfair-font fw-bold">Mantenedor de Productos</h1>
+            <!-- Botón que abre la ventana modal para crear un producto -->
             <button class="btn btn-custom-dark" data-bs-toggle="modal" data-bs-target="#modalProducto" onclick="prepararCrear()">+ NUEVO PRODUCTO</button>
         </div>
 
+        <!-- Tabla de Inventario -->
         <div class="bg-white p-4 border rounded shadow-sm overflow-auto">
-            <table class="table align-middle">
+            <table class="table align-middle table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th>Código</th>
@@ -44,23 +68,27 @@
                     </tr>
                 </thead>
                 <tbody id="tablaProductos">
-                    </tbody>
+                </tbody>
             </table>
         </div>
     </main>
 
+    <!-- Formulario para Crear/Editar Producto -->
     <div class="modal fade" id="modalProducto" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content auth-card">
                 <div class="modal-header auth-header-bar text-white">
-                    <h5 class="modal-title" id="modalTitle">Nuevo Producto</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title fw-bold" id="modalTitle">Nuevo Producto</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body p-4">
                     <form id="formProducto">
-                        <input type="hidden" id="prodIndex"> <div class="mb-3">
+                        <!-- Campo oculto para saber si estamos creando (vacío) o editando (tiene un índice) -->
+                        <input type="hidden" id="prodIndex"> 
+                        
+                        <div class="mb-3">
                             <label class="form-label">Código producto *</label>
-                            <input type="text" class="form-control" id="prodCodigo" required minlength="3">
+                            <input type="text" class="form-control" id="prodCodigo" required minlength="3" placeholder="Ej: GA001">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nombre *</label>
@@ -68,7 +96,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Precio *</label>
-                            <input type="number" class="form-control" id="prodPrecio" required min="0"> 
+                            <input type="number" class="form-control" id="prodPrecio" required min="0" placeholder="Sin puntos ni comas"> 
                         </div>
                         <div class="row">
                             <div class="col-6 mb-3">
@@ -77,34 +105,42 @@
                             </div>
                             <div class="col-6 mb-3">
                                 <label class="form-label">Stock Crítico</label>
-                                <input type="number" class="form-control" id="prodStockCritico" min="0">
+                                <input type="number" class="form-control" id="prodStockCritico" min="0" placeholder="Ej: 2">
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Categoría *</label>
                             <select class="form-select" id="prodCategoria" required>
                                 <option value="" disabled selected>Seleccione...</option>
-                                <option value="Guitarras">Guitarras</option>
-                                <option value="Bajos">Bajos</option>
+                                <option value="Guitarras Acústicas">Guitarras Acústicas</option>
+                                <option value="Guitarras Eléctricas">Guitarras Eléctricas</option>
+                                <option value="Bajos Eléctricos">Bajos Eléctricos</option>
                                 <option value="Baterías">Baterías</option>
-                                <option value="Teclados">Teclados</option>
+                                <option value="Teclados y Pianos">Teclados y Pianos</option>
+                                <option value="Amplificadores">Amplificadores</option>
+                                <option value="Micrófonos">Micrófonos</option>
+                                <option value="Pedales de Efectos">Pedales de Efectos</option>
+                                <option value="Accesorios">Accesorios</option>
+                                <option value="Estudio y Grabación">Estudio y Grabación</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Descripción</label>
-                            <textarea class="form-control" id="prodDesc" maxlength="500"></textarea>
+                            <textarea class="form-control" id="prodDesc" maxlength="500" rows="3"></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">URL de Imagen</label>
-                            <input type="url" class="form-control" id="prodImg">
+                            <input type="url" class="form-control" id="prodImg" placeholder="https://...">
                         </div>
-                        <button type="submit" class="btn btn-custom-dark w-100">Guardar Producto</button>
+                        
+                        <button type="submit" class="btn btn-custom-dark w-100 mt-3">Guardar Producto</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="admin-productos.js"></script>
 </body>
