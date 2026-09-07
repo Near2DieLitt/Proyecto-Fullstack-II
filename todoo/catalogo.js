@@ -1,3 +1,5 @@
+//localStorage.removeItem("productosCatalogo");
+
 // 1. Intentamos leer los productos creados en el administrador
 let productosMemoria = JSON.parse(localStorage.getItem("productosCatalogo"));
 
@@ -11,7 +13,7 @@ let productosBase = [
         categoria: "Guitarras Acústicas",
         stock: 8,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://i5.walmartimages.cl/asr/a1774d9f-e686-4dec-b03b-5d30e6736a1f.33ddf2d8b210f44efdbf39ea93665da8.jpeg?odnHeight=2000&odnWidth=2000&odnBg=ffffff"
     },
     {
         id: "GA002",
@@ -22,7 +24,7 @@ let productosBase = [
         categoria: "Guitarras Acústicas",
         stock: 5,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.fender.cl/media/catalog/product/cache/1/image/800x800/9df78eab33525d08d6e5fb8d27136e95/g/a/ga089_0971210532v4.jpg"
     },
     {
         id: "GA003",
@@ -33,7 +35,7 @@ let productosBase = [
         categoria: "Guitarras Acústicas",
         stock: 10,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://r2.gear4music.com/media/101/1018345/600/preview.jpg"
     },
     {
         id: "GA004",
@@ -44,7 +46,7 @@ let productosBase = [
         categoria: "Guitarras Acústicas",
         stock: 3,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://rdmusico.cl/cdn/shop/files/205524-1200-auto.webp?v=1777046763"
     },
     {
         id: "GA005",
@@ -55,7 +57,7 @@ let productosBase = [
         categoria: "Guitarras Acústicas",
         stock: 6,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShWgPXuTsBwskU-qvmJ9uX1rdPua27LXhAYFm4NPGlIA&s=10"
     },
     {
         id: "GE001",
@@ -66,7 +68,7 @@ let productosBase = [
         categoria: "Guitarras Eléctricas",
         stock: 5,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://audiomusicacl.vtexassets.com/arquivos/ids/191443/1-guitarra-electrica-fender-squier-sonic-stratocaster-hss-tahitian-coral-1113313.jpg?v=638525238954070000"
     },
     {
         id: "GE002",
@@ -77,7 +79,7 @@ let productosBase = [
         categoria: "Guitarras Eléctricas",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTubsjf8qokkMzVFzrqkJl2E3lD-wSvD_5fL43yHjBHg&s=10"
     },
     {
         id: "GE003",
@@ -88,7 +90,7 @@ let productosBase = [
         categoria: "Guitarras Eléctricas",
         stock: 3,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://musicworks.cl/wp-content/uploads/2025/11/2-15-600x720-1.jpg"
     },
     {
         id: "GE004",
@@ -99,7 +101,7 @@ let productosBase = [
         categoria: "Guitarras Eléctricas",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_731411-CBT91855368498_092025-O.webp"
     },
     {
         id: "GE005",
@@ -110,7 +112,7 @@ let productosBase = [
         categoria: "Guitarras Eléctricas",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-S_mZor8L6gi2F1fTGfujgUY34HiLV3f20zzeSjPr2A&s=10"
     },
     {
         id: "BA001",
@@ -121,7 +123,7 @@ let productosBase = [
         categoria: "Bajos Eléctricos",
         stock: 5,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKCzMd4uq75RU3iMZmVeILQai3fibbYBnHfjjaQKPIABXVafzTTq9rf-aV&s=10"
     },
     {
         id: "BA002",
@@ -132,7 +134,7 @@ let productosBase = [
         categoria: "Bajos Eléctricos",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.picclickimg.com/a8QAAeSwKRRqCHhU/Bajo-el%C3%A9ctrico-Fender-Japan-JAZZ-BASS-JB-62-01.webp"
     },
     {
         id: "BA003",
@@ -143,7 +145,7 @@ let productosBase = [
         categoria: "Bajos Eléctricos",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://eljuri.store/16284-medium_default/bajo-electro-acustico-stlb-232ceq-4.jpg"
     },
     {
         id: "BT001",
@@ -154,7 +156,7 @@ let productosBase = [
         categoria: "Baterías",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://biomusic.cl/wp-content/uploads/2022/11/Pearl-C703AB.jpeg"
     },
     {
         id: "BT002",
@@ -165,7 +167,7 @@ let productosBase = [
         categoria: "Baterías",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://musicbox.com.co/wp-content/uploads/2022/06/6033467-1-768x743.jpg"
     },
     {
         id: "BT003",
@@ -176,7 +178,7 @@ let productosBase = [
         categoria: "Baterías",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://latinmusic.pe/wp-content/uploads/Pearl-EXX725SPNC.jpg"
     },
     {
         id: "BT004",
@@ -187,7 +189,7 @@ let productosBase = [
         categoria: "Baterías",
         stock: 3,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://static.sonovente.com/img/library/zoom/64/450/64508_1.jpg"
     },
     {
         id: "BT005",
@@ -198,7 +200,7 @@ let productosBase = [
         categoria: "Baterías",
         stock: 3,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_Q_NP_843273-MLU72999116028_112023-O.webp"
     },
     {
         id: "TC001",
@@ -209,7 +211,7 @@ let productosBase = [
         categoria: "Teclados y Pianos",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://es.yamaha.com/es/files/PSR_E463_tcm121-1687045.jpg?impolicy=resize&imwid=735&imhei=735"
     },
     {
         id: "TC002",
@@ -220,7 +222,7 @@ let productosBase = [
         categoria: "Teclados y Pianos",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://m.media-amazon.com/images/I/71ZOoJTDLRL._AC_UF894,1000_QL80_.jpg"
     },
     {
         id: "TC003",
@@ -231,7 +233,7 @@ let productosBase = [
         categoria: "Teclados y Pianos",
         stock: 5,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_Q_NP_2X_846412-MLM92391989243_092025-P.webp"
     },
     {
         id: "TC004",
@@ -242,7 +244,7 @@ let productosBase = [
         categoria: "Teclados y Pianos",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.audioproperu.com/wp-content/uploads/2021/03/Arturia-KeyLab-88-MkII.jpg"
     },
     {
         id: "AM001",
@@ -253,7 +255,7 @@ let productosBase = [
         categoria: "Amplificadores",
         stock: 5,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShXs2Z2JVgKY0KZ4uD-tkg5umbrGX4hGBa6_qTxgZTbBLORUZ9udKiZJI&s=10"
     },
     {
         id: "AM002",
@@ -264,7 +266,7 @@ let productosBase = [
         categoria: "Amplificadores",
         stock: 3,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_917893-MLM92124184646_092025-C.jpg"
     },
     {
         id: "AM003",
@@ -275,7 +277,7 @@ let productosBase = [
         categoria: "Amplificadores",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTStCohH-KVMFaEFZTPbJoJoUC_zX23pf9sCPaSgdV4U9hcHqepKgNT6fc&s=10"
     },
     {
         id: "AM004",
@@ -286,7 +288,7 @@ let productosBase = [
         categoria: "Amplificadores",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_770191-MCO108018204231_032026-O.webp"
     },
     {
         id: "MI001",
@@ -297,7 +299,7 @@ let productosBase = [
         categoria: "Micrófonos",
         stock: 8,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.blupointmusic.cl/wp-content/uploads/2026/04/Shure-MV7X-Microfono-Dinamico-3.webp"
     },
     {
         id: "MI002",
@@ -308,7 +310,7 @@ let productosBase = [
         categoria: "Micrófonos",
         stock: 6,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.tiendavisionbroadcast.co/wp-content/uploads/2022/10/shure-super-55.webp"
     },
     {
         id: "MI003",
@@ -319,7 +321,7 @@ let productosBase = [
         categoria: "Micrófonos",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://m.media-amazon.com/images/I/61VSkBVGMDL._AC_UF894,1000_QL80_.jpg"
     },
     {
         id: "MI004",
@@ -330,7 +332,7 @@ let productosBase = [
         categoria: "Micrófonos",
         stock: 5,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://m.media-amazon.com/images/I/71upyux89ZL.jpg"
     },
     {
         id: "PE001",
@@ -341,7 +343,7 @@ let productosBase = [
         categoria: "Pedales de Efectos",
         stock: 7,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://f.fcdn.app/imgs/5d8f5e/www.palaciodelamusica.com.uy/pmusuy/1f2e/original/catalogo/DS1-DS1_1/1920-1200/pedal-de-efectos-boss-ds1-distortion-pedal-de-efectos-boss-ds1-distortion.jpg"
     },
     {
         id: "PE002",
@@ -352,7 +354,7 @@ let productosBase = [
         categoria: "Pedales de Efectos",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiyxSiiu55bDT6eDUehFaU_7gXlAiPFF3oFCbeo6kjQTaLjiiCe6qs1fjJ&s=10"
     },
     {
         id: "PE003",
@@ -363,7 +365,7 @@ let productosBase = [
         categoria: "Pedales de Efectos",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://r2.gear4music.com/media/14/142394/600/preview.jpg"
     },
     {
         id: "PE004",
@@ -374,7 +376,7 @@ let productosBase = [
         categoria: "Pedales de Efectos",
         stock: 8,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJdTLQ3LUXcNg6YbsqwiKipq3VHFvO7AevNq1HGrS-6OMayu98CRcCE483&s=10"
     },
     {
         id: "PE005",
@@ -385,7 +387,7 @@ let productosBase = [
         categoria: "Pedales de Efectos",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_667731-MLA107910475211_032026-O.webp"
     },
     {
         id: "PE006",
@@ -396,7 +398,7 @@ let productosBase = [
         categoria: "Pedales de Efectos",
         stock: 6,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.blupointmusic.cl/wp-content/uploads/2023/06/Ibanez-TS9DX-Turbo-Tube-Screamer-1.jpg"
     },
     {
         id: "AC001",
@@ -407,7 +409,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 25,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://rockbox.es/40287-home_default/ernie-ball-eb2006-earthwood-bronze-extra-light-2006-1050.jpg"
     },
     {
         id: "AC002",
@@ -418,7 +420,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 20,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_Q_NP_2X_814462-MLA100062300021_122025-P.webp"
     },
     {
         id: "AC003",
@@ -429,7 +431,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 12,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://f.fcdn.app/imgs/7c3fc6/www.palaciodelamusica.com.uy/pmusuy/95a0/original/catalogo/P02802-P02802_1/460x460/encordado-bajo-ernie-ball-bass-flat-group-i-055-encordado-bajo-ernie-ball-bass-flat-group-i-055.jpg"
     },
     {
         id: "AC004",
@@ -440,7 +442,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 50,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_NQ_NP_664252-MLA100769878270_122025-O.webp"
     },
     {
         id: "AC005",
@@ -451,7 +453,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 15,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://chilimusic.cl/wp-content/uploads/2026/03/D_776010-MLC41573888669_042020-F.jpg"
     },
     {
         id: "AC006",
@@ -462,7 +464,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 20,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://r2.gear4music.com/media/27/273063/600/preview_1.jpg"
     },
     {
         id: "AC007",
@@ -473,7 +475,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 15,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://aymaraperu.com.pe/wp-content/uploads/2024/02/ERNIE-BALL-6415-CABLE-INSTRUMENTO-3M-600x600.webp"
     },
     {
         id: "AC008",
@@ -484,7 +486,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 10,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://cdnx.jumpseller.com/musicchile/image/57527546/thumb/960/960?1755733429"
     },
     {
         id: "AC009",
@@ -495,7 +497,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 12,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://media.audiomusica.com/DATA/imagenes/Hercules-GS414B-PLUS.jpg"
     },
     {
         id: "AC010",
@@ -506,7 +508,7 @@ let productosBase = [
         categoria: "Accesorios",
         stock: 10,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://http2.mlstatic.com/D_Q_NP_2X_832859-MLA107816777649_022026-P.webp"
     },
     {
         id: "ES001",
@@ -517,7 +519,7 @@ let productosBase = [
         categoria: "Estudio y Grabación",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.altec.pe/6210-large_default/focusrite-scarlett-solo-studio-3gen-paquete-de-grabacion-con-interfaz-de-audio-2x2-usb.jpg"
     },
     {
         id: "ES002",
@@ -528,7 +530,7 @@ let productosBase = [
         categoria: "Estudio y Grabación",
         stock: 6,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.audioproperu.com/wp-content/uploads/2020/05/Audio-Technica-ATH-M50x-Audifonos-Cerrados-para-Monitoreo-de-Estudio-03.jpg"
     },
     {
         id: "ES003",
@@ -539,7 +541,7 @@ let productosBase = [
         categoria: "Estudio y Grabación",
         stock: 4,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://www.audioproperu.com/wp-content/uploads/2021/01/Audio-Technica-ATH-M50xPB.jpg"
     },
     {
         id: "ES004",
@@ -550,7 +552,7 @@ let productosBase = [
         categoria: "Estudio y Grabación",
         stock: 2,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvNICQyuVLejzqDsMNbiW4mMOZVOTs03QyILDShlWfaNBL_nmXRFUfuA7R&s=10"
     },
     {
         id: "ES005",
@@ -561,7 +563,7 @@ let productosBase = [
         categoria: "Estudio y Grabación",
         stock: 8,
         stockCritico: 2,
-        imagen: ""
+        imagen: "https://sonotecperu.com/wp-content/uploads/2021/01/Sennheiser-E-614-2-600x600.jpg"
     }
 ];
 
