@@ -79,7 +79,7 @@ function pagar() {
         alert("Agrega productos al carrito primero.");
         return;
     }
-    alert("Procesando pago... (Esta función se implementará con Spring Boot más adelante).");
+    alert("Procesando pago... ");
     carrito = [];
     localStorage.setItem("carritoCompras", JSON.stringify(carrito));
     window.location.href = "catalogo.html";
