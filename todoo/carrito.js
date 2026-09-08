@@ -42,7 +42,7 @@ function renderizarCarrito() {
         `;
     });
 
-    // Actualizar totales y contador del navbar
+
     document.getElementById("carritoTotal").innerText = "$" + new Intl.NumberFormat('es-CL').format(sumaTotal);
     spanContador.innerText = totalItems;
 }

@@ -4,13 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let nombre = localStorage.getItem("nombreUsuario");
     let paginaActual = window.location.pathname.split("/").pop();
     
-    // 1. PROTEGER LA VISTA DE ADMIN
+
     if (paginaActual === "admin-productos.html" && rol !== "admin") {
         alert("Acceso denegado. Solo personal autorizado.");
         window.location.href = "inicio-sesion.html";
     }
 
-    // 2. BLOQUEAR FORMULARIOS SI YA ESTÁ LOGUEADO
     if (rol && (paginaActual === "inicio-sesion.html" || paginaActual === "registrarse.html" || paginaActual === "")) {
         let cajaFormulario = document.querySelector('.login');
         if (cajaFormulario) {
@@ -28,12 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. CAMBIAR EL MENÚ EN LA TIENDA PÚBLICA (Catálogo, Inicio, etc.)
     if (rol) {
         let links = document.querySelectorAll('.custom-nav-link');
         
         links.forEach(link => {
-            // Buscamos el enlace que dice INGRESAR en cualquier página
+
             if (link.innerHTML.includes('INGRESAR')) {
                 
                 if (rol === "admin") {
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     link.href = "mi-perfil.html";
                 }
                 
-                // Evitamos que el botón SALIR se duplique si ya existe
+
                 if (!document.getElementById("btn-salir-global")) {
                     let btnCerrar = document.createElement('a');
                     btnCerrar.href = "#";
@@ -57,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         cerrarSesion();
                     };
                     
-                    // Lo insertamos justo después del botón de Perfil/Admin
+
                     link.parentNode.insertBefore(btnCerrar, link.nextSibling);
                 }
             }
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// FUNCIÓN PARA CERRAR SESIÓN DESDE CUALQUIER LADO
+
 function cerrarSesion() {
     localStorage.removeItem("rolUsuario");
     localStorage.removeItem("nombreUsuario");

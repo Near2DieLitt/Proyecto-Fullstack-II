@@ -35,7 +35,6 @@ function registrar() {
         return;
     }
 
-    // Guardamos que se registró un CLIENTE y su nombre
     localStorage.setItem("nombreUsuario", nombre);
     localStorage.setItem("rolUsuario", "cliente");
 

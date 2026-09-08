@@ -1,6 +1,6 @@
 //localStorage.removeItem("productosCatalogo");
 
-// 1. Intentamos leer los productos creados en el administrador
+
 let productosMemoria = JSON.parse(localStorage.getItem("productosCatalogo"));
 
 let productosBase = [
@@ -567,22 +567,22 @@ let productosBase = [
     }
 ];
 
-// 3. Cargamos los datos guardados en memoria o inicializamos con la base del Excel
+
 let productos = productosMemoria ? productosMemoria : productosBase;
 
-// Si es la primera vez que entramos, guardamos el arreglo completo en localStorage
+
 if (!productosMemoria) {
     localStorage.setItem("productosCatalogo", JSON.stringify(productosBase));
 }
 
-// 4. Inyectamos los productos en el HTML
+
 let lista = document.getElementById("listaProductos");
 
-// Limpiamos la lista por seguridad antes de llenarla
+
 lista.innerHTML = "";
 
 for (let i = 0; i < productos.length; i++) {
-    // Le damos formato al precio para que se vea como $129.990 en lugar de $129990
+
     let precioFormateado = new Intl.NumberFormat('es-CL').format(productos[i].precio);
 
     lista.innerHTML += `
@@ -604,7 +604,7 @@ for (let i = 0; i < productos.length; i++) {
     `;
 }
 
-// 5. Función para guardar el producto seleccionado y llevar a la vista de detalle pero no se si se vera asi realmente
+
 function verDetalle(id) {
     let productoSeleccionado = productos.find(p => p.id === id);
     localStorage.setItem("producto", JSON.stringify(productoSeleccionado));
