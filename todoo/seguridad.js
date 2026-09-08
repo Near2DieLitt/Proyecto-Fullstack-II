@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rol && (paginaActual === "inicio-sesion.html" || paginaActual === "registrarse.html" || paginaActual === "")) {
         let cajaFormulario = document.querySelector('.login');
         if (cajaFormulario) {
-            let linkDestino = (rol === "admin") ? "admin-productos.html" : "mi-perfil.html";
+            let linkDestino = (rol === "admin") ? "admin-productos.html" : "admin-productos.html";
             cajaFormulario.innerHTML = `
                 <h1 id="logo-centro">SONIDO <span>vivo</span></h1>
                 <div class="text-center mt-5 mb-5">

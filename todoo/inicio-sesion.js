@@ -1,23 +1,54 @@
-function ingresar() {
-    let correo = document.getElementById("Correo").value.trim();
-    let clave = document.getElementById("Clave").value.trim();
+const usuariosPermitidos = [
+    {
+        correo: "admin@sonidovivo.cl",
+        clave: "admin123",
+        nombre: "Administrador",
+        rol: "admin"
+    },
+    {
+        correo: "juan@cliente.cl",
+        clave: "cli123",
+        nombre: "Juan",
+        rol: "cliente"
+    },
+    {
+        correo: "profe@duoc.cl",
+        clave: "duoc123",
+        nombre: "Profesor",
+        rol: "cliente"
+    }
+];
 
-    if (correo === "" || clave === "") {
+
+function ingresar() {
+    let correoInput = document.getElementById("Correo").value.trim().toLowerCase();
+    let claveInput = document.getElementById("Clave").value.trim();
+
+
+    if (correoInput === "" || claveInput === "") {
         alert("Debe completar todos los campos");
         return;
     }
 
 
-    if (correo === "admin@sonidovivo.cl" && clave === "admin123") {
-        localStorage.setItem("nombreUsuario", "Administrador");
-        localStorage.setItem("rolUsuario", "admin");
-        window.location.href = "admin-productos.html";
-    } 
-  
-    else {
-        let nombre = correo.split("@")[0]; 
-        localStorage.setItem("nombreUsuario", nombre);
-        localStorage.setItem("rolUsuario", "cliente");
-        window.location.href = "mi-perfil.html";
+
+    let usuarioEncontrado = usuariosPermitidos.find(
+        user => user.correo === correoInput && user.clave === claveInput
+    );
+
+    if (usuarioEncontrado) {
+
+        localStorage.setItem("nombreUsuario", usuarioEncontrado.nombre);
+        localStorage.setItem("rolUsuario", usuarioEncontrado.rol);
+
+
+        if (usuarioEncontrado.rol === "admin") {
+            window.location.href = "admin-productos.html";
+        } else {
+            window.location.href = "mi-perfil.html";
+        }
+    } else {
+
+        alert("Correo o contraseña incorrectos.");
     }
 }
