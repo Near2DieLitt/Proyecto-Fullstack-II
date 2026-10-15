@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sobre-nosotros</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Catálogo - Sonido Vivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="sonido-vivo.css">
+    <link rel="stylesheet" href="css/sonido-vivo.css">
 </head>
 <body class="bg-cream">
     <header class="sticky-top bg-white z-3 border-bottom">
@@ -36,49 +36,14 @@
     </header>
 
 
-        <section class="container-fluid px-0 my-5">
-            <div class="row g-0 align-items-center bg-custom-banner">
-                <div class="col-12 col-lg-5 p-5 text-dark">
-                    <p class="brand-text mb-2">VIÑA DEL MAR - EST. 2013</p>
-                    <h1 class="display-3 playfair-font mb-4">Sobre<br>Sonido Vivo<br></h1>
-                    <p class="text-secondary mb-4">Nacimos en 1998 con veinte guitarras y un taller de luthería. Hoy somos la tienda de instrumentos más antigua de la Quinta Región.
-                    Desde eléctricas a acústicas. Fender, Gibson, Yamaha, y las mejores marcas del mundo — atendidas por músicos de verdad.</p>
- <div class="d-flex justify-content gap-3 flex-wrap">
-            <a href="catalogo.html" class="btn btn-dark rounded-0 px-4 py-3 fw-bold fs-7">VER CATÁLOGO</a>
-            <a href="nuestra-tienda.html" class="btn btn-outline-dark rounded-0 px-4 py-3 fw-bold fs-7">VISÍTANOS</a>
-           </div>
-            </div>
-            <div class="col-12 col-lg-7">
-                <div class="banner-img-container">
-                <img src="https://images.unsplash.com/photo-1725152471889-6c59a52e7794?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080" alt="Guitarras Banner" class="w-100 h-100 object-fit-cover">
-                </div>
-                </div>
-                </div>
-            </section>
+    <main class="container py-5 my-5">
+        <h1 class="playfair-font fw-bold text-center mb-5">Nuestro Catálogo</h1>
+        
 
+        <div class="row g-4" id="listaProductos"></div>
+    </main>
 
-            <section class="container-fluid bg-white py-5 border-bottom">
-            <div class="row g-0 text-center">
-                <div class="col-6 col-md-3 py-4 border-end-md">
-                    <h2 class="playfair-font fw-bold mb-2">1998</h2>
-                    <p class="text-secondary fw-bold fs-8 mb-0">AÑO FUNDACIÓN</p>
-                </div>
-                <div class="col-6 col-md-3 py-4 border-end-md">
-                    <h2 class="playfair-font fw-bold mb-2">340 +</h2>
-                    <p class="text-secondary fw-bold fs-8 mb-0">PRODUCTOS EN STOCK</p>
-                </div>
-                <div class="col-6 col-md-3 py-4 border-end-md">
-                    <h2 class="playfair-font fw-bold mb-2">15 +</h2>
-                    <p class="text-secondary fw-bold fs-8 mb-0">MARCAS OFICIALES</p>
-                </div>
-                <div class="col-6 col-md-3 py-4">
-                    <h2 class="playfair-font fw-bold mb-2">5.000 +</h2>
-                    <p class="text-secondary fw-bold fs-8 mb-0">CLIENTES SATISFECHOS</p>
-                </div>
-            </div>
-        </section>
-    
-        <footer class="bg-dark text-white py-5 px-4 px-lg-5">
+<footer class="bg-dark text-white py-5 px-4 px-lg-5">
         <div class="container py-4">
             <div class="row g-4 justify-content-between">
                 <div class="col-12 col-md-4">
@@ -111,7 +76,8 @@
         </div>
     </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="seguridad.js"></script>
+    <script src="js/catalogo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/seguridad.js"></script>
 </body>
 </html>
