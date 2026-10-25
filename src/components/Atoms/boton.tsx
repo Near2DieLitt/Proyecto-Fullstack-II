@@ -1,4 +1,3 @@
-
 import type { ButtonHTMLAttributes } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +7,7 @@ const clases = {
     success: 'btn btn-success',
     danger: 'btn btn-danger',
     'outline-dark': 'btn btn-outline-dark',
-    'outline-light': 'btn btn-outline-light',
+    'ouline-light': 'btn btn-outline-light',
     'outline-danger': 'btn btn-ouline-secondary',
     'outline-secondary': 'btn btn-outline-secondary',
     link: 'btn btn-link',
@@ -18,7 +17,7 @@ const clases = {
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>{
     variante?: keyof typeof clases
-    a?: string 
+    a?: string /*Si se indica una ruta el boton se muestra como enlace de react router*/ 
 }
 
 function Boton({ variante = 'dark', a, className = '',children, ...resto}:Props){
@@ -40,4 +39,3 @@ function Boton({ variante = 'dark', a, className = '',children, ...resto}:Props)
 }
 
 export default Boton
-
