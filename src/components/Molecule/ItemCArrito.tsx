@@ -1,6 +1,7 @@
 import type { ItemCarrito as Item } from '../../datos'
 import { formatearPrecio } from '../../datos'
-import Boton from '../Atoms/Boton'
+import Boton from '../Atoms/boton'
+
 import Icono from '../Atoms/Icono'
 
 

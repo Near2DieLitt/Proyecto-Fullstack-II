@@ -7,7 +7,7 @@ const clases = {
     success: 'btn btn-success',
     danger: 'btn btn-danger',
     'outline-dark': 'btn btn-outline-dark',
-    'ouline-light': 'btn btn-outline-light',
+    'outline-light': 'btn btn-outline-light',
     'outline-danger': 'btn btn-ouline-secondary',
     'outline-secondary': 'btn btn-outline-secondary',
     link: 'btn btn-link',

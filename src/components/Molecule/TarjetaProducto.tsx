@@ -1,6 +1,7 @@
 
 import { formatearPrecio } from '../../datos'
-import Boton from '../Atoms/Boton'
+import Boton from '../Atoms/boton'
+
 
 interface Props {
   imagen: string

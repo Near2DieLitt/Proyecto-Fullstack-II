@@ -1,4 +1,4 @@
-import Boton from "../Atoms/Boton";
+import Boton from "../Atoms/boton"
 
 
 function ImagenPrincipal() {
