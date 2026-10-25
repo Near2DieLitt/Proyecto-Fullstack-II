@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { guardarCarrito, obtenerCarrito } from '../components/ts/almacenamiento'
 import { Link, useNavigate } from 'react-router-dom'
 import type { ItemCarrito as Item } from '../components/ts/datos'
-import ItemCarrito from '../components/Molecule/ItemCarrito'
+import ItemCarrito from '../components/Molecule/ItemCArrito'
 import ResumenCarrito from '../components/Organism/ResumenCarrito'
 
 

@@ -26,4 +26,5 @@ function TarjetaArticulo({ articulo }: Props) {
       <p className="article-excerpt fs-7">{articulo.extracto}</p>
     </div>
   )
-}export default TarjetaArticulo
+}
+export default TarjetaArticulo

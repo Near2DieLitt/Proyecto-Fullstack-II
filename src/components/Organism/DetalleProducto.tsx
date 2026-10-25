@@ -6,8 +6,6 @@ import Entrada from '../Atoms/Entrada'
 import { formatearPrecio, Producto } from '../ts/datos'
 import Boton from '../Atoms/boton'
 
-
-
 interface Props {
   producto: Producto
   onAgregar: (cantidad: number) => void
@@ -15,12 +13,17 @@ interface Props {
 
 function DetalleProducto({ producto, onAgregar }: Props) {
   const [cantidad, setCantidad] = useState('1')
+  const [error, setError] = useState('')
   const hayStock = producto.stock > 0
 
   function agregar() {
-    const numero = parseInt(cantidad)
-    const valida = Number.isNaN(numero) || numero < 1 ? 1 : Math.min(numero, producto.stock)
-    onAgregar(valida)
+    const numero = Number(cantidad)
+    if (!/^\d+$/.test(cantidad.trim()) || numero < 1 || numero > producto.stock) {
+      setError(`Ingresa una cantidad entera entre 1 y ${producto.stock}.`)
+      return
+    }
+    setError('')
+    onAgregar(numero)
   }
 
   return (
@@ -73,8 +76,12 @@ function DetalleProducto({ producto, onAgregar }: Props) {
               min={1}
               max={producto.stock}
               disabled={!hayStock}
+              aria-invalid={!!error}
               value={cantidad}
-              onChange={(e) => setCantidad(e.target.value)}
+              onChange={(e) => {setCantidad(e.target.value)
+                setError('')
+              }}
+              
             />
           </div>
           <Boton variante="dark" className="rounded-0 px-5 py-2 fw-bold w-100 h-100" disabled={!hayStock} onClick={agregar}>

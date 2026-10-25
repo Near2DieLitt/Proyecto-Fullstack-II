@@ -92,3 +92,17 @@ textarea:focus {
     border-right: 1px solid #dee2e6;
   }
 }
+/* Errores de validación */
+.error-campo {
+  color: #b02a37;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+input.invalido,
+select.invalido,
+textarea.invalido,
+.auth-card .form-control.invalido,
+.auth-card .form-select.invalido {
+  border-color: #b02a37 !important;
+}

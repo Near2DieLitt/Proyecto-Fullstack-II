@@ -5,6 +5,7 @@ interface Props {
     etiqueta: string
     requerido?: boolean
     contador?: { actual:number; max: number }
+    error?: string
     clase?: string
     claseEtiqueta?: string
     children: ReactNode
@@ -16,21 +17,28 @@ function CampoFormulario({
     etiqueta,
     requerido = false,
     contador,
+    error,
     clase = 'grupo-input',
     claseEtiqueta = '',
     children,
 }: Props) {
-    return (
-        <div className={clase}>
-            <label htmlFor={id} className = {claseEtiqueta}>
-                {etiqueta} {requerido && <span>*</span>}
-            </label>
-            {children}
-            {contador && (
-                <span className="contador">
-                    {contador.actual}/{contador.max}
-                </span>
-            )}
-        </div>
-    )
-} export default CampoFormulario
+  return (
+    <div className={clase}>
+      <label htmlFor={id} className={claseEtiqueta}>
+        {etiqueta} {requerido && <span>*</span>}
+      </label>
+      {children}
+      {error && (
+        <span className="error-campo" role="alert">
+          {error}
+        </span>
+      )}
+      {contador && (
+        <span className="contador">
+          {contador.actual}/{contador.max}
+        </span>
+      )}
+    </div>
+  )
+}
+ export default CampoFormulario

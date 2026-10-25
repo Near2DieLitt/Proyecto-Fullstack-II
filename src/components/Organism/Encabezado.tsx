@@ -21,6 +21,7 @@ function Encabezado() {
   useLocation()
   const sesion = obtenerSesion()
 
+
   function salir() {
     cerrarSesion()
     setAbierto(false)

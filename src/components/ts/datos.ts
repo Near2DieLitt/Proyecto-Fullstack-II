@@ -608,7 +608,7 @@ export const productosBase: Producto[] = [
   },
 ]
 
-// En los textos, *palabra* se muestra en cursiva y \n es un salto de línea.
+
 export const articulos: Articulo[] = [
   {
     id: 'guitarra',
@@ -741,7 +741,6 @@ export const articulos: Articulo[] = [
 export interface Pedido {
   id: string
   fecha: string
-  /** 1 = en preparación, 2 = despachado, 3 = entregado */
   etapa: 1 | 2 | 3
   total: number
   producto: { nombre: string; marca: string; imagen: string; cantidad: number; precio: number }
