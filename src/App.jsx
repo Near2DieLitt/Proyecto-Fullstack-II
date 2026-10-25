@@ -1,6 +1,9 @@
 import { useEffect } from "react"
-import { useLocation } from "react-router-dom"
-
+import { Route, Routes, useLocation } from "react-router-dom"
+import Inicio from './Page/Inicio'
+import Encabezado from './components/Organism/Encabezado'
+import PiePagina from './components/Organism/PiePagina'
+import './App.css'
 
 function App(){
   const { pathname } = useLocation()
@@ -14,16 +17,6 @@ function App(){
       <Encabezado />
       <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/catalogo" element={<Catalogo />} />
-          <Route path="/producto/:id" element={<Detalle />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/novedades/:id" element={<Novedades />} />
-          <Route path="/sobre-nosotros" element={<Articulo />} />
-          <Route path="/contacto" element={<Contacto/>} />
-          <Route path="/nuestra-tienda" element={<NuestraTienda />} />
-          <Route path="/inicio-sesion" element={<InicoSesion />} />
-          <Route path="/registrarse" element={<MiPerfil />} />
-          <Route path="/admin-productos" element={<AdminProductos />} />
       </Routes>
       <PiePagina />
     </>

@@ -1,5 +1,5 @@
 
-import { formatearPrecio } from '../../datos'
+import { formatearPrecio } from '../ts/datos'
 import Boton from '../Atoms/boton'
 
 

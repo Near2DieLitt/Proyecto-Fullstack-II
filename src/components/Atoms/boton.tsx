@@ -17,7 +17,7 @@ const clases = {
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement>{
     variante?: keyof typeof clases
-    a?: string /*Si se indica una ruta el boton se muestra como enlace de react router*/ 
+    a?: string 
 }
 
 function Boton({ variante = 'dark', a, className = '',children, ...resto}:Props){

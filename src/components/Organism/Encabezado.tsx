@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import { cerrarSesion, obtenerSesion } from '../../almacenamiento'
+
 import Logo from '../Atoms/Logo'
 import Icono from '../Atoms/Icono'
+import { cerrarSesion, obtenerSesion } from '../ts/almacenamiento'
 
 
 const enlaces = [
@@ -17,7 +18,7 @@ const enlaces = [
 function Encabezado() {
   const [abierto, setAbierto] = useState(false)
   const navegar = useNavigate()
-  useLocation() // vuelve a leer la sesión cada vez que cambia la ruta
+  useLocation()
   const sesion = obtenerSesion()
 
   function salir() {

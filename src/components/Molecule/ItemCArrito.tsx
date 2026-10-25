@@ -1,5 +1,5 @@
-import type { ItemCarrito as Item } from '../../datos'
-import { formatearPrecio } from '../../datos'
+import type { ItemCarrito as Item } from '../ts/datos'
+import { formatearPrecio } from '../ts/datos'
 import Boton from '../Atoms/boton'
 
 import Icono from '../Atoms/Icono'
