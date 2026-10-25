@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import type { Producto } from '../../datos'
-import { formatearPrecio } from '../../datos'
+
 import Icono from '../Atoms/Icono'
 import Insignia from '../Atoms/Insignia'
 import Entrada from '../Atoms/Entrada'
-import Boton from '../Atoms/Boton'
+import { formatearPrecio, Producto } from '../ts/datos'
+import Boton from '../Atoms/boton'
+
 
 
 interface Props {

@@ -4,7 +4,7 @@ interface Props {
   activa: 'ingreso' | 'registro'
 }
 
-function Pestanas({ activa }: Props) {
+function PestanasSesion({ activa }: Props) {
   const navegar = useNavigate()
 
   return (
@@ -17,4 +17,4 @@ function Pestanas({ activa }: Props) {
       </button>
     </div>
   )
-} export default Pestanas
+} export default PestanasSesion

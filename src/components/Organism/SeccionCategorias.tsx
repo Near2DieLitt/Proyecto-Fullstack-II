@@ -1,4 +1,4 @@
-import TarjetaCategoria from "../Molecule/TarjetaCategoria";
+import TarjetaCategoria from '../Molecule/TarjetaCategoria';
 
 
 interface Props {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import type { Articulo } from '../../datos'
 import Insignia from '../Atoms/Insignia'
+import { Articulo } from '../ts/datos'
 
 
 interface Props {
