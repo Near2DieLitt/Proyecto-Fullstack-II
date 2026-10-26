@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { guardarCarrito, obtenerCarrito } from '../components/ts/almacenamiento'
+import { guardarCarrito, obtenerCarrito, obtenerProductos } from '../components/ts/almacenamiento'
 import { Link, useNavigate } from 'react-router-dom'
 import type { ItemCarrito as Item } from '../components/ts/datos'
 import ItemCarrito from '../components/Molecule/ItemCArrito'
@@ -17,6 +17,12 @@ function Carrito() {
   }
 
   function cambiarCantidad(id: string, cambio: number) {
+    if (cambio > 0) {
+      const producto = obtenerProductos().find((p) => p.id === id)
+      const item = carrito.find((p) => p.id === id)
+      if (!producto || !item || item.cantidad >= producto.stock) return
+    }
+
     actualizar(
       carrito
         .map((p) => (p.id === id ? { ...p, cantidad: p.cantidad + cambio } : p))
@@ -59,7 +65,13 @@ function Carrito() {
             </div>
           ) : (
             carrito.map((item) => (
-              <ItemCarrito key={item.id} item={item} onCambiarCantidad={cambiarCantidad} onEliminar={eliminar} />
+              <ItemCarrito
+                key={item.id}
+                item={item}
+                stockMaximo={obtenerProductos().find((producto) => producto.id === item.id)?.stock ?? 0}
+                onCambiarCantidad={cambiarCantidad}
+                onEliminar={eliminar}
+              />
             ))
           )}
         </div>

@@ -45,8 +45,10 @@ const categorias = [
 ]
 
 function agregar({ id, nombre, precio, imagen }: ProductoDestacado) {
-  agregarAlCarrito({ id, nombre, precio, imagen })
-  alert('¡Producto añadido al carrito con éxito!')
+  const agregado = agregarAlCarrito({ id, nombre, precio, imagen })
+  alert(agregado
+    ? '¡Producto añadido al carrito con éxito!'
+    : 'No se pudo agregar: alcanzaste el stock disponible de este producto.')
 }
 
 function Inicio() {

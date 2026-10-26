@@ -63,7 +63,18 @@ function FormularioRegistro() {
   function registrar(e: FormEvent) {
     e.preventDefault()
 
-    if (form.run === '' || form.nombre === '' || form.correo === '' || form.clave === '' || form.region === '') {
+    if (
+      !form.run.trim() ||
+      !form.nombre.trim() ||
+      !form.apellidos.trim() ||
+      !form.correo.trim() ||
+      !form.clave.trim() ||
+      !form.claveConf.trim() ||
+      !form.tipo ||
+      !form.region ||
+      !form.comuna ||
+      !form.direccion.trim()
+    ) {
       alert('Por favor, completa todos los campos obligatorios (*).')
       return
     }
@@ -78,30 +89,30 @@ function FormularioRegistro() {
   }
 
   return (
-    <form onSubmit={registrar} noValidate>
+    <form onSubmit={registrar}>
       <CampoFormulario id="Run" etiqueta="RUN" requerido>
-        <Entrada id="Run" placeholder="Sin puntos ni guion, ej: 12345678K" value={form.run} onChange={cambiar('run')} />
+        <Entrada id="Run" required placeholder="Sin puntos ni guion, ej: 12345678K" value={form.run} onChange={cambiar('run')} />
       </CampoFormulario>
 
       <div className="fila-doble">
         <CampoFormulario id="Nombre" etiqueta="NOMBRE" requerido contador={{ actual: form.nombre.length, max: 50 }}>
-          <Entrada id="Nombre" placeholder="Tu nombre" maxLength={50} value={form.nombre} onChange={cambiar('nombre')} />
+          <Entrada id="Nombre" required placeholder="Tu nombre" maxLength={50} value={form.nombre} onChange={cambiar('nombre')} />
         </CampoFormulario>
         <CampoFormulario id="Apellidos" etiqueta="APELLIDOS" requerido contador={{ actual: form.apellidos.length, max: 100 }}>
-          <Entrada id="Apellidos" placeholder="Apellidos" maxLength={100} value={form.apellidos} onChange={cambiar('apellidos')} />
+          <Entrada id="Apellidos" required placeholder="Apellidos" maxLength={100} value={form.apellidos} onChange={cambiar('apellidos')} />
         </CampoFormulario>
       </div>
 
       <CampoFormulario id="CorreoReg" etiqueta="CORREO ELECTRÓNICO" requerido>
-        <Entrada id="CorreoReg" type="email" placeholder="nombre@ejemplo.com" value={form.correo} onChange={cambiar('correo')} />
+        <Entrada id="CorreoReg" required type="email" placeholder="nombre@ejemplo.com" value={form.correo} onChange={cambiar('correo')} />
       </CampoFormulario>
 
       <div className="fila-doble">
         <CampoFormulario id="ClaveReg" etiqueta="CONTRASEÑA" requerido>
-          <Entrada id="ClaveReg" type="password" placeholder="4 a 10 caracteres" maxLength={10} value={form.clave} onChange={cambiar('clave')} />
+          <Entrada id="ClaveReg" required type="password" placeholder="4 a 10 caracteres" minLength={4} maxLength={10} value={form.clave} onChange={cambiar('clave')} />
         </CampoFormulario>
         <CampoFormulario id="ClaveConf" etiqueta="CONFIRMAR" requerido>
-          <Entrada id="ClaveConf" type="password" placeholder="Repite" maxLength={10} value={form.claveConf} onChange={cambiar('claveConf')} />
+          <Entrada id="ClaveConf" required type="password" placeholder="Repite" minLength={4} maxLength={10} value={form.claveConf} onChange={cambiar('claveConf')} />
         </CampoFormulario>
       </div>
 
@@ -110,21 +121,21 @@ function FormularioRegistro() {
           <Entrada id="FechaNac" type="date" value={form.fechaNac} onChange={cambiar('fechaNac')} />
         </CampoFormulario>
         <CampoFormulario id="TipoUsuario" etiqueta="TIPO DE USUARIO" requerido>
-          <Selector id="TipoUsuario" placeholder="Seleccionar..." opciones={tiposUsuario} value={form.tipo} onChange={cambiar('tipo')} />
+          <Selector id="TipoUsuario" required placeholder="Seleccionar..." opciones={tiposUsuario} value={form.tipo} onChange={cambiar('tipo')} />
         </CampoFormulario>
       </div>
 
       <div className="fila-doble">
         <CampoFormulario id="Region" etiqueta="REGIÓN" requerido>
-          <Selector id="Region" placeholder="Seleccionar región..." opciones={regiones} value={form.region} onChange={cambiar('region')} />
+          <Selector id="Region" required placeholder="Seleccionar región..." opciones={regiones} value={form.region} onChange={cambiar('region')} />
         </CampoFormulario>
         <CampoFormulario id="Comuna" etiqueta="COMUNA" requerido>
-          <Selector id="Comuna" placeholder="Seleccionar comuna..." opciones={comunas} value={form.comuna} onChange={cambiar('comuna')} />
+          <Selector id="Comuna" required placeholder="Seleccionar comuna..." opciones={comunas} value={form.comuna} onChange={cambiar('comuna')} />
         </CampoFormulario>
       </div>
 
       <CampoFormulario id="Direccion" etiqueta="DIRECCIÓN" requerido contador={{ actual: form.direccion.length, max: 300 }}>
-        <Entrada id="Direccion" placeholder="Calle, número, depto." maxLength={300} value={form.direccion} onChange={cambiar('direccion')} />
+        <Entrada id="Direccion" required placeholder="Calle, número, depto." maxLength={300} value={form.direccion} onChange={cambiar('direccion')} />
       </CampoFormulario>
 
       <Boton type="submit" variante="submit">

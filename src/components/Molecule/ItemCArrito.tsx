@@ -7,11 +7,12 @@ import Icono from '../Atoms/Icono'
 
 interface Props {
   item: Item
+  stockMaximo: number
   onCambiarCantidad: (id: string, cambio: number) => void
   onEliminar: (id: string) => void
 }
 
-function ItemCarrito({ item, onCambiarCantidad, onEliminar }: Props) {
+function ItemCarrito({ item, stockMaximo, onCambiarCantidad, onEliminar }: Props) {
   return (
     <div className="d-flex align-items-center gap-4 border-bottom py-3">
       <img
@@ -42,6 +43,7 @@ function ItemCarrito({ item, onCambiarCantidad, onEliminar }: Props) {
             variante="outline-dark"
             className="btn-sm rounded-circle px-2"
             aria-label="Aumentar cantidad"
+            disabled={item.cantidad >= stockMaximo}
             onClick={() => onCambiarCantidad(item.id, 1)}
           >
             <Icono nombre="plus" className="fs-8" />

@@ -40,7 +40,7 @@ function FormularioIngreso() {
   }
 
   return (
-    <form onSubmit={ingresar} noValidate>
+    <form onSubmit={ingresar} >
       <CampoFormulario id="Correo" etiqueta="CORREO ELECTRÓNICO" requerido>
         <Entrada id="Correo" type="email" placeholder="nombre@ejemplo.com" value={correo} onChange={(e) => setCorreo(e.target.value)} />
       </CampoFormulario>

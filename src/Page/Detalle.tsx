@@ -13,7 +13,14 @@ function Detalle() {
 
   function agregar(cantidad: number) {
     if (!producto) return
-    agregarAlCarrito({ id: producto.id, nombre: producto.nombre, precio: producto.precio, imagen: producto.imagen }, cantidad)
+    const agregado = agregarAlCarrito(
+      { id: producto.id, nombre: producto.nombre, precio: producto.precio, imagen: producto.imagen },
+      cantidad,
+    )
+    if (!agregado) {
+      alert('No se pudo agregar: la cantidad supera el stock disponible.')
+      return
+    }
     alert('¡Producto añadido al carrito con éxito!')
     navegar('/catalogo')
   }

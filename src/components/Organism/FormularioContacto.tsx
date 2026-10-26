@@ -23,7 +23,7 @@ function FormularioContacto() {
   }
 
   return (
-    <form onSubmit={enviar} noValidate>
+    <form onSubmit={enviar}>
       <CampoFormulario id="NombreContacto" etiqueta="NOMBRE" requerido contador={{ actual: form.nombre.length, max: 100 }}>
         <Entrada
           id="NombreContacto"
@@ -48,6 +48,7 @@ function FormularioContacto() {
         <AreaTexto
           id="MensajeContacto"
           placeholder="¿En qué podemos ayudarte?"
+          minLength={10}
           maxLength={500}
           rows={5}
           style={{ resize: 'vertical' }}
