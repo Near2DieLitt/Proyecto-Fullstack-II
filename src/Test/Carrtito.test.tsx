@@ -12,7 +12,7 @@ const mostrar = () =>
     </MemoryRouter>,
   )
 
-beforeEach(() => localStorage.clear())
+
 afterEach(cleanup)
 
 describe('Carrito', () => {

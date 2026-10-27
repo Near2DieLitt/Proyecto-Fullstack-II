@@ -9,10 +9,6 @@ import Boton from '../components/Atoms/boton'
 let contenedor: HTMLDivElement
 let raiz: ReturnType<typeof createRoot>
 
-afterEach(() => {
-	act(() => raiz.unmount())
-	contenedor.remove()
-})
 
 describe('Boton de catálogo', () => {
 	it('al presionarlo abre la página del catálogo', () => {

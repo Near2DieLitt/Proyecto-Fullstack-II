@@ -3,7 +3,6 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { agregarAlCarrito, cerrarSesion, guardarSesion, obtenerCarrito, obtenerSesion } from "../components/ts/almacenamiento"
 
 
-beforeEach(() => localStorage.clear())
 
 describe('almacenamiento', () => {
 
