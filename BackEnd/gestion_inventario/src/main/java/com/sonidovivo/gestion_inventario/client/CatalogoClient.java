@@ -1,4 +1,4 @@
-package main.java.com.sonidovivo.gestion_inventario.client;
+package com.sonidovivo.gestion_inventario.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

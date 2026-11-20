@@ -1,4 +1,4 @@
-package main.java.com.sonidovivo.gestion_inventario.model;
+package com.sonidovivo.gestion_inventario.model;
 
 import java.time.LocalDateTime;
 
