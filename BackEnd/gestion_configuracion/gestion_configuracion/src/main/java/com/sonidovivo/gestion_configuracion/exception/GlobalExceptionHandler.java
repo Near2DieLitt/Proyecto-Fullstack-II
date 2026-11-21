@@ -27,7 +27,6 @@ public class GlobalExceptionHandler {
         return error(HttpStatus.UNAUTHORIZED, ex.getMessage());
     }
 
-    // Validaciones de @Valid: devuelve un mensaje por cada campo
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> validacion(MethodArgumentNotValidException ex) {
         Map<String, String> campos = new HashMap<>();
