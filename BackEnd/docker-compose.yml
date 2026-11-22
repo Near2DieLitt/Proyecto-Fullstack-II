@@ -1,0 +1,215 @@
+x-servicio-env: &servicio-env
+  DB_HOST: host.docker.internal
+  DB_PORT: "3306"
+  DB_PASS: ""
+  EUREKA_URL: http://eureka-server:8761/eureka/
+  MS_USUARIOS_URL: http://gestion-usuarios:8080
+  MS_DIRECCIONES_URL: http://gestion-direcciones:8081
+  MS_CATALOGO_URL: http://gestion-catalogo:8091
+  MS_INVENTARIO_URL: http://gestion-inventario:8090
+  MS_PEDIDOS_URL: http://gestion-pedidos:8092
+
+services:
+  eureka-server:
+    build:
+      context: ./eurekaserver
+      dockerfile: Dockerfile
+    container_name: eureka-server
+    environment:
+      EUREKA_URL: http://eureka-server:8761/eureka/
+      EUREKA_HOST: eureka-server
+    ports:
+      - "8761:8761"
+    restart: on-failure
+    networks:
+      - microservicios-net
+
+  gestion_usuarios:
+    build:
+      context: ./gestion_usuarios
+      dockerfile: Dockerfile
+    container_name: gestion_usuarios
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_usuarios:/app/logs
+    ports:
+      - "8080:8080"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-usuarios
+
+  gestion_direcciones:
+    build:
+      context: ./gestion_direcciones
+      dockerfile: Dockerfile
+    container_name: gestion_direcciones
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_direcciones:/app/logs
+    ports:
+      - "8081:8081"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-direcciones
+
+  gestion_mensajeria:
+    build:
+      context: ./gestion_mensajeria
+      dockerfile: Dockerfile
+    container_name: gestion_mensajeria
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_mensajeria:/app/logs
+    ports:
+      - "8082:8082"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-mensajeria
+
+  gestion_configuracion:
+    build:
+      context: ./gestion_configuracion
+      dockerfile: Dockerfile
+    container_name: gestion_configuracion
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_configuracion:/app/logs
+    ports:
+      - "8073:8073"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-configuracion
+
+  gestion_inventario:
+    build:
+      context: ./gestion_inventario
+      dockerfile: Dockerfile
+    container_name: gestion_inventario
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_inventario:/app/logs
+    ports:
+      - "8090:8090"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-inventario
+
+  gestion_catalogo:
+    build:
+      context: ./gestion_catalogo
+      dockerfile: Dockerfile
+    container_name: gestion_catalogo
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_catalogo:/app/logs
+    ports:
+      - "8091:8091"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-catalogo
+
+  gestion_pedidos:
+    build:
+      context: ./gestion_pedidos
+      dockerfile: Dockerfile
+    container_name: gestion_pedidos
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_pedidos:/app/logs
+    ports:
+      - "8092:8092"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-pedidos
+
+  gestion_pagos:
+    build:
+      context: ./gestion_pagos
+      dockerfile: Dockerfile
+    container_name: gestion_pagos
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_pagos:/app/logs
+    ports:
+      - "8093:8093"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-pagos
+
+  gestion_envios:
+    build:
+      context: ./gestion_envios
+      dockerfile: Dockerfile
+    container_name: gestion_envios
+    environment: *servicio-env
+    volumes:
+      - ./logs/gestion_envios:/app/logs
+    ports:
+      - "8094:8094"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      microservicios-net:
+        aliases:
+          - gestion-envios
+
+  apigateway:
+    build:
+      context: ./apigateway
+      dockerfile: Dockerfile
+    container_name: apigateway
+    environment: *servicio-env
+    ports:
+      - "8800:8800"
+    depends_on:
+      eureka-server:
+        condition: service_started
+    restart: on-failure
+    networks:
+      - microservicios-net
+
+networks:
+  microservicios-net:
+    driver: bridge
