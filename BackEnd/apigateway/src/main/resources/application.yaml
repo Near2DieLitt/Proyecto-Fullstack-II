@@ -1,0 +1,68 @@
+server:
+  port: 8800
+
+spring:
+  application:
+    name: apigateway
+  cloud:
+      gateway:
+        server:
+          webflux:
+            default-filters:
+              - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_FIRST
+            globalcors:
+              cors-configurations:
+                '[/**]':
+                  allowedOrigins:
+                    - "http://localhost:5173"
+                    - "http://127.0.0.1:5173"
+                  allowedMethods: [GET, POST, PUT, PATCH, DELETE, OPTIONS]
+                  allowedHeaders: "*"
+            routes:
+              - id: ruta-usuarios
+                uri: lb://gestion-usuarios
+                predicates:
+                  - Path=/api/usuarios,/api/usuarios/**,/api/auth,/api/auth/**,/api/roles,/api/roles/**
+              - id: ruta-direcciones
+                uri: lb://gestion-direcciones
+                predicates:
+                  - Path=/api/direcciones,/api/direcciones/**,/api/regiones,/api/regiones/**
+              - id: ruta-mensajeria
+                uri: lb://gestion-mensajeria
+                predicates:
+                  - Path=/api/contactos,/api/contactos/**
+              - id: ruta-catalogo
+                uri: lb://gestion-catalogo
+                predicates:
+                  - Path=/api/productos,/api/productos/**,/api/categorias,/api/categorias/**,/api/marcas,/api/marcas/**
+              - id: ruta-inventario
+                uri: lb://gestion-inventario
+                predicates:
+                  - Path=/api/inventario,/api/inventario/**,/api/bodegas,/api/bodegas/**
+              - id: ruta-pedidos
+                uri: lb://gestion-pedidos
+                predicates:
+                  - Path=/api/pedidos,/api/pedidos/**
+              - id: ruta-configuracion
+                uri: lb://gestion-configuracion
+                predicates:
+                  - Path=/api/configuracion,/api/configuracion/**
+              - id: ruta-pagos
+                uri: lb://gestion-pagos
+                predicates:
+                  - Path=/api/pagos,/api/pagos/**,/api/metodos-pago,/api/metodos-pago/**
+              - id: ruta-envios
+                uri: lb://gestion-envios
+                predicates:
+                  - Path=/api/envios,/api/envios/**
+
+eureka:
+    client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+        defaultZone: ${EUREKA_URL:http://localhost:8761/eureka/}
+    instance:
+      prefer-ip-address: true
+      hostname: api-gateway
+      instance-id: api-gateway:${server.port}
