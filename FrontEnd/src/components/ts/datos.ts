@@ -8,6 +8,9 @@ export interface Producto {
   stock: number
   stockCritico: number
   imagen: string
+  destacado?: boolean
+  idCategoria?: number
+  idMarca?: number
 }
 
 export interface ItemCarrito {
@@ -19,6 +22,7 @@ export interface ItemCarrito {
 }
 
 export interface Sesion {
+  id?: number
   nombre: string
   rol: 'admin' | 'cliente'
 }
@@ -738,41 +742,3 @@ export const articulos: Articulo[] = [
   },
 ]
 
-export interface Pedido {
-  id: string
-  fecha: string
-  etapa: 1 | 2 | 3
-  total: number
-  producto: { nombre: string; marca: string; imagen: string; cantidad: number; precio: number }
-  seguimiento?: string
-}
-
-export const pedidos: Pedido[] = [
-  {
-    id: 'SV-2024-001',
-    fecha: '2024-11-15',
-    etapa: 2,
-    total: 649990,
-    producto: {
-      nombre: 'Stratocaster Player Series',
-      marca: 'Fender',
-      imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg4zRggiZDeMqzhtNfOIxjjelNAuzFMJHosGvD4s0IOOuLTn9m2-Zh4gsI&s=10',
-      cantidad: 1,
-      precio: 649990,
-    },
-    seguimiento: 'SK-845921034',
-  },
-  {
-    id: 'SV-2024-002',
-    fecha: '2024-11-10',
-    etapa: 3,
-    total: 274970,
-    producto: {
-      nombre: 'Teclado MIDI Akai MPK Mini',
-      marca: 'Akai',
-      imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThA2dj0VjUqs2M4tHGMGBymcJosDP4p4wrvBcoPgKj-Q&s=10',
-      cantidad: 1,
-      precio: 274970,
-    },
-  },
-]

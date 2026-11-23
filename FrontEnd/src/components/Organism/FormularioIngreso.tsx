@@ -6,37 +6,33 @@ import { guardarSesion } from '../ts/almacenamiento';
 import CampoFormulario from '../Molecule/CampoFormulario';
 import Boton from '../Atoms/boton';
 import Entrada from '../Atoms/Entrada';
+import { iniciarSesion } from '../../service/autenticacionServicio';
+import { mensajeDeError } from '../../service/api';
 
-
-const usuariosPermitidos: (Sesion & { correo: string; clave: string })[] = [
-  { correo: 'admin@sonidovivo.cl', clave: 'admin123', nombre: 'Administrador', rol: 'admin' },
-  { correo: 'juan@cliente.cl', clave: 'cli123', nombre: 'Juan', rol: 'cliente' },
-  { correo: 'profe@duoc.cl', clave: 'duoc123', nombre: 'Profesor', rol: 'cliente' },
-]
 
 function FormularioIngreso() {
   const [correo, setCorreo] = useState('')
   const [clave, setClave] = useState('')
   const navegar = useNavigate()
 
-  function ingresar(e: FormEvent) {
+  async function ingresar(e: FormEvent) {
     e.preventDefault()
     const correoLimpio = correo.trim().toLowerCase()
-    const claveLimpia = clave.trim()
+    const claveLimpia = clave
 
     if (correoLimpio === '' || claveLimpia === '') {
       alert('Debe completar todos los campos')
       return
     }
 
-    const usuario = usuariosPermitidos.find((u) => u.correo === correoLimpio && u.clave === claveLimpia)
-    if (!usuario) {
-      alert('Correo o contraseña incorrectos.')
-      return
+    try {
+      const usuario = await iniciarSesion(correoLimpio, claveLimpia)
+      const rol = usuario.rol === 'ADMIN' ? 'admin' : 'cliente'
+      guardarSesion({ id: usuario.id, nombre: usuario.nombre, rol })
+      navegar(rol === 'admin' ? '/admin-productos' : '/mi-perfil')
+    } catch (error) {
+      alert(mensajeDeError(error, 'No se pudo iniciar sesión. Verifica que el backend esté iniciado.'))
     }
-
-    guardarSesion({ nombre: usuario.nombre, rol: usuario.rol })
-    navegar(usuario.rol === 'admin' ? '/admin-productos' : '/mi-perfil')
   }
 
   return (

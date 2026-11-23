@@ -6,34 +6,31 @@ import Boton from '../Atoms/boton'
 import Selector from '../Atoms/Selector'
 import CampoFormulario from '../Molecule/CampoFormulario'
 import AreaTexto from '../Atoms/AreaTexto'
-const categorias = [
-  'Guitarras Acústicas',
-  'Guitarras Eléctricas',
-  'Bajos Eléctricos',
-  'Baterías',
-  'Teclados y Pianos',
-  'Amplificadores',
-  'Micrófonos',
-  'Pedales de Efectos',
-  'Accesorios',
-  'Estudio y Grabación',
-].map((c) => ({ valor: c, texto: c }))
+
+interface OpcionCatalogo {
+  id: number
+  nombre: string
+}
 
 interface Props {
-
   producto: Producto | null
-  onGuardar: (producto: Producto) => void
+  categorias: OpcionCatalogo[]
+  onGuardar: (producto: Producto) => Promise<void>
   onCerrar: () => void
 }
 
-function ProductoAdmin({ producto, onGuardar, onCerrar }: Props) {
+function ProductoAdmin({ producto, categorias, onGuardar, onCerrar }: Props) {
+  const [guardando, setGuardando] = useState(false)
   const [form, setForm] = useState({
     id: producto?.id ?? '',
     nombre: producto?.nombre ?? '',
     precio: producto ? String(producto.precio) : '',
     stock: producto ? String(producto.stock) : '',
-    stockCritico: producto?.stockCritico ? String(producto.stockCritico) : '',
-    categoria: producto?.categoria ?? '',
+    stockCritico: String(producto?.stockCritico ?? 2),
+    idCategoria: producto?.idCategoria
+      ? String(producto.idCategoria)
+      : String(categorias.find((opcion) => opcion.nombre === producto?.categoria)?.id ?? ''),
+    marca: producto?.marca ?? '',
     descripcion: producto?.descripcion ?? '',
     imagen: producto?.imagen ?? '',
   })
@@ -41,19 +38,36 @@ function ProductoAdmin({ producto, onGuardar, onCerrar }: Props) {
   const cambiar = (campo: keyof typeof form) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [campo]: e.target.value })
 
-  function enviar(e: FormEvent) {
+  async function enviar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    onGuardar({
-      id: form.id,
-      nombre: form.nombre,
-      precio: parseFloat(form.precio),
-      stock: parseInt(form.stock),
-      stockCritico: parseInt(form.stockCritico) || 0,
-      categoria: form.categoria,
-      descripcion: form.descripcion,
-      imagen: form.imagen,
-      marca: producto?.marca ?? 'Sonido Vivo',
-    })
+    const idCategoria = Number(form.idCategoria)
+    if (!Number.isSafeInteger(idCategoria) || idCategoria < 1) {
+      alert('Selecciona una categoría válida antes de guardar.')
+      return
+    }
+    if (!form.marca.trim()) {
+      alert('Escribe una marca antes de guardar.')
+      return
+    }
+
+    setGuardando(true)
+    try {
+      await onGuardar({
+        id: form.id,
+        nombre: form.nombre,
+        precio: parseFloat(form.precio),
+        stock: parseInt(form.stock),
+        stockCritico: parseInt(form.stockCritico) || 0,
+        categoria: categorias.find((opcion) => opcion.id === idCategoria)?.nombre ?? '',
+        descripcion: form.descripcion,
+        imagen: form.imagen,
+        marca: form.marca.trim(),
+        idCategoria,
+        idMarca: producto?.idMarca,
+      })
+    } finally {
+      setGuardando(false)
+    }
   }
 
   return (
@@ -67,14 +81,12 @@ function ProductoAdmin({ producto, onGuardar, onCerrar }: Props) {
             </div>
             <div className="modal-body p-4">
               <form onSubmit={enviar}>
-                <CampoFormulario id="prodCodigo" etiqueta="Código producto" requerido clase="mb-3" claseEtiqueta="form-label">
-                  <Entrada id="prodCodigo" className="form-control" required minLength={3} placeholder="Ej: GA001" value={form.id} onChange={cambiar('id')} />
-                </CampoFormulario>
+                {producto && <p className="text-muted mb-3">ID del producto: {producto.id}</p>}
                 <CampoFormulario id="prodNombre" etiqueta="Nombre" requerido clase="mb-3" claseEtiqueta="form-label">
                   <Entrada id="prodNombre" className="form-control" required maxLength={100} value={form.nombre} onChange={cambiar('nombre')} />
                 </CampoFormulario>
                 <CampoFormulario id="prodPrecio" etiqueta="Precio" requerido clase="mb-3" claseEtiqueta="form-label">
-                  <Entrada id="prodPrecio" type="number" className="form-control" required min={0} placeholder="Sin puntos ni comas" value={form.precio} onChange={cambiar('precio')} />
+                  <Entrada id="prodPrecio" type="number" className="form-control" required min={0.01} step="0.01" placeholder="Sin puntos ni comas" value={form.precio} onChange={cambiar('precio')} />
                 </CampoFormulario>
                 <div className="row">
                   <CampoFormulario id="prodStock" etiqueta="Stock" requerido clase="col-6 mb-3" claseEtiqueta="form-label">
@@ -85,7 +97,10 @@ function ProductoAdmin({ producto, onGuardar, onCerrar }: Props) {
                   </CampoFormulario>
                 </div>
                 <CampoFormulario id="prodCategoria" etiqueta="Categoría" requerido clase="mb-3" claseEtiqueta="form-label">
-                  <Selector id="prodCategoria" className="form-select" required placeholder="Seleccione..." opciones={categorias} value={form.categoria} onChange={cambiar('categoria')} />
+                  <Selector id="prodCategoria" name="prodCategoria" className="form-select" required placeholder="Seleccione..." opciones={categorias.map((opcion) => ({ valor: String(opcion.id), texto: opcion.nombre }))} value={form.idCategoria} onChange={cambiar('idCategoria')} />
+                </CampoFormulario>
+                <CampoFormulario id="prodMarca" etiqueta="Marca" requerido clase="mb-3" claseEtiqueta="form-label">
+                  <Entrada id="prodMarca" className="form-control" required maxLength={100} placeholder="Ej: Yamaha" value={form.marca} onChange={cambiar('marca')} />
                 </CampoFormulario>
                 <CampoFormulario id="prodDesc" etiqueta="Descripción" clase="mb-3" claseEtiqueta="form-label">
                   <AreaTexto id="prodDesc" className="form-control" maxLength={500} rows={3} value={form.descripcion} onChange={cambiar('descripcion')} />
@@ -93,8 +108,8 @@ function ProductoAdmin({ producto, onGuardar, onCerrar }: Props) {
                 <CampoFormulario id="prodImg" etiqueta="URL de Imagen" clase="mb-3" claseEtiqueta="form-label">
                   <Entrada id="prodImg" type="url" className="form-control" placeholder="https://..." value={form.imagen} onChange={cambiar('imagen')} />
                 </CampoFormulario>
-                <Boton type="submit" variante="dark" className="w-100 mt-3">
-                  Guardar Producto
+                <Boton type="submit" variante="dark" className="w-100 mt-3" disabled={guardando}>
+                  {guardando ? 'Guardando...' : 'Guardar Producto'}
                 </Boton>
               </form>
             </div>

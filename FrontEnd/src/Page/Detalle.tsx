@@ -1,18 +1,33 @@
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import { agregarAlCarrito, obtenerProductos } from '../components/ts/almacenamiento'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { agregarAlCarrito } from '../components/ts/almacenamiento'
 import MigasDePan from '../components/Molecule/MigasDePan'
 import DetalleProducto from '../components/Organism/DetalleProducto'
+import { obtenerProductoDeTienda } from '../service/catalogoTiendaServicio'
+import { mensajeDeError } from '../service/api'
+import type { Producto } from '../components/ts/datos'
 
 function Detalle() {
   const { id } = useParams()
   const navegar = useNavigate()
-  const producto = obtenerProductos().find((p) => p.id === id)
+  const [producto, setProducto] = useState<Producto | null>(null)
+  const [cargando, setCargando] = useState(true)
+  const [error, setError] = useState('')
 
+  useEffect(() => {
+    if (!id) return
+    let activa = true
+    obtenerProductoDeTienda(id)
+      .then((resultado) => { if (activa) setProducto(resultado) })
+      .catch((errorCarga: unknown) => { if (activa) setError(mensajeDeError(errorCarga, 'No se pudo cargar el producto.')) })
+      .finally(() => { if (activa) setCargando(false) })
+    return () => { activa = false }
+  }, [id])
 
-  if (!producto) return <Navigate to="/catalogo" replace />
+  if (cargando) return <main className="container py-5"><p role="status">Cargando producto...</p></main>
+  if (error || !producto) return <main className="container py-5"><p role="alert">{error || 'Producto no encontrado.'}</p><Link to="/catalogo">Volver al catálogo</Link></main>
 
-  function agregar(cantidad: number) {
-    if (!producto) return
+  const agregar = (cantidad: number) => {
     const agregado = agregarAlCarrito(
       { id: producto.id, nombre: producto.nombre, precio: producto.precio, imagen: producto.imagen },
       cantidad,
@@ -33,4 +48,6 @@ function Detalle() {
       <DetalleProducto key={producto.id} producto={producto} onAgregar={agregar} />
     </main>
   )
-} export default Detalle
+}
+
+export default Detalle

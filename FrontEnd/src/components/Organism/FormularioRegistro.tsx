@@ -5,50 +5,16 @@ import { useNavigate } from "react-router-dom"
 import { guardarSesion } from "../ts/almacenamiento"
 import CampoFormulario from "../Molecule/CampoFormulario"
 import Entrada from "../Atoms/Entrada"
-import Selector from "../Atoms/Selector"
 import Boton from "../Atoms/boton"
-
-const regiones = [
-  { valor: 'Arica y Parinacota', texto: 'Arica y Parinacota' },
-  { valor: 'Tarapacá', texto: 'Tarapacá' },
-  { valor: 'Antofagasta', texto: 'Antofagasta' },
-  { valor: 'Atacama', texto: 'Atacama' },
-  { valor: 'Coquimbo', texto: 'Coquimbo' },
-  { valor: 'Valparaíso', texto: 'Valparaíso' },
-  { valor: 'Metropolitana', texto: 'Metropolitana de Santiago' },
-  { valor: "O'Higgins", texto: "Libertador General Bernardo O'Higgins" },
-  { valor: 'Maule', texto: 'Maule' },
-  { valor: 'Ñuble', texto: 'Ñuble' },
-  { valor: 'Biobío', texto: 'Biobío' },
-  { valor: 'La Araucanía', texto: 'La Araucanía' },
-  { valor: 'Los Ríos', texto: 'Los Ríos' },
-  { valor: 'Los Lagos', texto: 'Los Lagos' },
-  { valor: 'Aysén', texto: 'Aysén del General Carlos Ibáñez del Campo' },
-  { valor: 'Magallanes', texto: 'Magallanes y de la Antártica Chilena' },
-]
-
-const comunas = [
-  { valor: 'vina', texto: 'Viña del Mar' },
-  { valor: 'santiago', texto: 'Santiago' },
-]
-
-const tiposUsuario = [
-  { valor: 'cliente', texto: 'Cliente' },
-  { valor: 'vendedor', texto: 'Vendedor' },
-]
+import { registrar as registrarUsuario } from "../../service/autenticacionServicio"
+import { mensajeDeError } from "../../service/api"
 
 const inicial = {
-  run: '',
   nombre: '',
   apellidos: '',
   correo: '',
   clave: '',
   claveConf: '',
-  fechaNac: '',
-  tipo: '',
-  region: '',
-  comuna: '',
-  direccion: '',
 }
 
 type Campo = keyof typeof inicial
@@ -60,20 +26,15 @@ function FormularioRegistro() {
   const cambiar = (campo: Campo) => (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
     setForm({ ...form, [campo]: e.target.value })
 
-  function registrar(e: FormEvent) {
+  async function registrar(e: FormEvent) {
     e.preventDefault()
 
     if (
-      !form.run.trim() ||
       !form.nombre.trim() ||
       !form.apellidos.trim() ||
       !form.correo.trim() ||
       !form.clave.trim() ||
-      !form.claveConf.trim() ||
-      !form.tipo ||
-      !form.region ||
-      !form.comuna ||
-      !form.direccion.trim()
+      !form.claveConf.trim()
     ) {
       alert('Por favor, completa todos los campos obligatorios (*).')
       return
@@ -82,18 +43,32 @@ function FormularioRegistro() {
       alert('Las contraseñas no coinciden.')
       return
     }
+    const nombreCompleto = `${form.nombre.trim()} ${form.apellidos.trim()}`
+    if (nombreCompleto.length > 100) {
+      alert('El nombre y los apellidos no pueden superar 100 caracteres en total.')
+      return
+    }
 
-    guardarSesion({ nombre: form.nombre, rol: 'cliente' })
-    alert(`¡Cuenta creada exitosamente para ${form.nombre}!`)
-    navegar('/mi-perfil')
+    try {
+      const usuario = await registrarUsuario({
+        nombre: nombreCompleto,
+        correo: form.correo.trim(),
+        password: form.clave,
+      })
+      guardarSesion({
+        id: usuario.id,
+        nombre: usuario.nombre,
+        rol: usuario.rol === 'ADMIN' ? 'admin' : 'cliente',
+      })
+      alert(`¡Cuenta creada exitosamente para ${usuario.nombre}!`)
+      navegar('/mi-perfil')
+    } catch (error) {
+      alert(mensajeDeError(error, 'No se pudo crear la cuenta. Verifica que el backend esté iniciado.'))
+    }
   }
 
   return (
     <form onSubmit={registrar}>
-      <CampoFormulario id="Run" etiqueta="RUN" requerido>
-        <Entrada id="Run" required placeholder="Sin puntos ni guion, ej: 12345678K" value={form.run} onChange={cambiar('run')} />
-      </CampoFormulario>
-
       <div className="fila-doble">
         <CampoFormulario id="Nombre" etiqueta="NOMBRE" requerido contador={{ actual: form.nombre.length, max: 50 }}>
           <Entrada id="Nombre" required placeholder="Tu nombre" maxLength={50} value={form.nombre} onChange={cambiar('nombre')} />
@@ -109,34 +84,12 @@ function FormularioRegistro() {
 
       <div className="fila-doble">
         <CampoFormulario id="ClaveReg" etiqueta="CONTRASEÑA" requerido>
-          <Entrada id="ClaveReg" required type="password" placeholder="4 a 10 caracteres" minLength={4} maxLength={10} value={form.clave} onChange={cambiar('clave')} />
+          <Entrada id="ClaveReg" required type="password" placeholder="6 a 10 caracteres" minLength={6} maxLength={10} value={form.clave} onChange={cambiar('clave')} />
         </CampoFormulario>
         <CampoFormulario id="ClaveConf" etiqueta="CONFIRMAR" requerido>
-          <Entrada id="ClaveConf" required type="password" placeholder="Repite" minLength={4} maxLength={10} value={form.claveConf} onChange={cambiar('claveConf')} />
+          <Entrada id="ClaveConf" required type="password" placeholder="Repite" minLength={6} maxLength={10} value={form.claveConf} onChange={cambiar('claveConf')} />
         </CampoFormulario>
       </div>
-
-      <div className="fila-doble">
-        <CampoFormulario id="FechaNac" etiqueta="FECHA DE NACIMIENTO">
-          <Entrada id="FechaNac" type="date" value={form.fechaNac} onChange={cambiar('fechaNac')} />
-        </CampoFormulario>
-        <CampoFormulario id="TipoUsuario" etiqueta="TIPO DE USUARIO" requerido>
-          <Selector id="TipoUsuario" required placeholder="Seleccionar..." opciones={tiposUsuario} value={form.tipo} onChange={cambiar('tipo')} />
-        </CampoFormulario>
-      </div>
-
-      <div className="fila-doble">
-        <CampoFormulario id="Region" etiqueta="REGIÓN" requerido>
-          <Selector id="Region" required placeholder="Seleccionar región..." opciones={regiones} value={form.region} onChange={cambiar('region')} />
-        </CampoFormulario>
-        <CampoFormulario id="Comuna" etiqueta="COMUNA" requerido>
-          <Selector id="Comuna" required placeholder="Seleccionar comuna..." opciones={comunas} value={form.comuna} onChange={cambiar('comuna')} />
-        </CampoFormulario>
-      </div>
-
-      <CampoFormulario id="Direccion" etiqueta="DIRECCIÓN" requerido contador={{ actual: form.direccion.length, max: 300 }}>
-        <Entrada id="Direccion" required placeholder="Calle, número, depto." maxLength={300} value={form.direccion} onChange={cambiar('direccion')} />
-      </CampoFormulario>
 
       <Boton type="submit" variante="submit">
         CREAR CUENTA

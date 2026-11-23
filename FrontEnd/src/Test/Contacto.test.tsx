@@ -1,11 +1,14 @@
 //@vitest-environment jsdom
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import Contacto from '../Page/Contacto'
 
+vi.mock('../service/contactoServicio', () => ({
+  enviarContacto: vi.fn().mockResolvedValue({}),
+}))
 
 describe('Contacto', () => {
-  it('muestra la información del contacto y valida el formulario', () => {
+  it('muestra la información del contacto y valida el formulario', async () => {
     const alertSpy = vi.spyOn(window, 'alert').mockImplementation(() => {})
 
     render(<Contacto />)
@@ -20,6 +23,7 @@ describe('Contacto', () => {
     fireEvent.change(screen.getByPlaceholderText('¿En qué podemos ayudarte?'), { target: { value: 'Quiero consultar por una guitarra.' } })
     fireEvent.click(screen.getByText('ENVIAR MENSAJE'))
 
-    expect(alertSpy).toHaveBeenCalledWith(expect.stringContaining('Ana'))
+    await waitFor(() => expect(alertSpy).toHaveBeenCalledWith(expect.stringContaining('Ana')))
+    alertSpy.mockRestore()
   })
 })

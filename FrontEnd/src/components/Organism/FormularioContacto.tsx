@@ -4,13 +4,16 @@ import Boton from '../Atoms/boton'
 import AreaTexto from '../Atoms/AreaTexto'
 import Entrada from '../Atoms/Entrada'
 import CampoFormulario from '../Molecule/CampoFormulario'
+import { enviarContacto } from '../../service/contactoServicio'
+import { mensajeDeError } from '../../service/api'
 
 const vacio = { nombre: '', correo: '', mensaje: '' }
 
 function FormularioContacto() {
   const [form, setForm] = useState(vacio)
+  const [enviando, setEnviando] = useState(false)
 
-  function enviar(e: FormEvent) {
+  async function enviar(e: FormEvent) {
     e.preventDefault()
 
     if (form.nombre.trim() === '' || form.correo.trim() === '' || form.mensaje.trim() === '') {
@@ -18,8 +21,20 @@ function FormularioContacto() {
       return
     }
 
-    alert(`¡Gracias por escribirnos, ${form.nombre}! Hemos recibido tu mensaje y te responderemos pronto al correo ${form.correo}.`)
-    setForm(vacio)
+    setEnviando(true)
+    try {
+      await enviarContacto({
+        nombreCompleto: form.nombre.trim(),
+        correo: form.correo.trim(),
+        mensaje: form.mensaje.trim(),
+      })
+      alert(`¡Gracias por escribirnos, ${form.nombre.trim()}! Hemos recibido tu mensaje y te responderemos pronto al correo ${form.correo.trim()}.`)
+      setForm(vacio)
+    } catch (error) {
+      alert(`No se pudo enviar el mensaje: ${mensajeDeError(error, 'verifica que el backend esté iniciado e inténtalo nuevamente.')}`)
+    } finally {
+      setEnviando(false)
+    }
   }
 
   return (
@@ -57,8 +72,8 @@ function FormularioContacto() {
         />
       </CampoFormulario>
 
-      <Boton type="submit" variante="submit" className="mt-2">
-        ENVIAR MENSAJE
+      <Boton type="submit" variante="submit" className="mt-2" disabled={enviando}>
+        {enviando ? 'ENVIANDO...' : 'ENVIAR MENSAJE'}
       </Boton>
     </form>
   )

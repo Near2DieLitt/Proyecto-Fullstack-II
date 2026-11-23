@@ -1,13 +1,30 @@
+import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { obtenerProductos } from '../components/ts/almacenamiento'
 import TarjetaProducto from '../components/Molecule/TarjetaProducto'
+import { listarProductosDeTienda } from '../service/catalogoTiendaServicio'
+import { mensajeDeError } from '../service/api'
+import type { Producto } from '../components/ts/datos'
 
 function Catalogo() {
   const [parametros] = useSearchParams()
   const categoria = parametros.get('categoria')?.trim() ?? ''
   const normalizar = (valor: string) =>
     valor.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase()
-  const productos = obtenerProductos()
+  const [productos, setProductos] = useState<Producto[]>([])
+  const [cargando, setCargando] = useState(true)
+  const [error, setError] = useState('')
+  const [intento, setIntento] = useState(0)
+
+  useEffect(() => {
+    let activa = true
+    setCargando(true)
+    setError('')
+    listarProductosDeTienda()
+      .then((resultado) => { if (activa) setProductos(resultado) })
+      .catch((errorCarga: unknown) => { if (activa) setError(mensajeDeError(errorCarga, 'No se pudo cargar el catálogo.')) })
+      .finally(() => { if (activa) setCargando(false) })
+    return () => { activa = false }
+  }, [intento])
   const categorias = [...new Set(productos.map((producto) => producto.categoria))].sort((a, b) => a.localeCompare(b, 'es'))
   const productosFiltrados = categoria
     ? productos.filter((producto) => normalizar(producto.categoria).startsWith(normalizar(categoria)))
@@ -56,7 +73,16 @@ function Catalogo() {
           </div>
         ))}
       </div>
-      {productosFiltrados.length === 0 && (
+      {cargando && <p role="status" className="text-center">Cargando productos...</p>}
+      {error && (
+        <div className="text-center" role="alert">
+          <p>{error}</p>
+          <button type="button" className="btn btn-outline-dark" onClick={() => setIntento((actual) => actual + 1)}>
+            Reintentar
+          </button>
+        </div>
+      )}
+      {!cargando && !error && productosFiltrados.length === 0 && (
         <p className="text-center text-muted">No hay productos en esta categoría.</p>
       )}
     </main>

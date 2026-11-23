@@ -5,6 +5,7 @@ const CLAVE_PRODUCTOS = 'productosCatalogo'
 const CLAVE_CARRITO = 'carritoCompras'
 const CLAVE_NOMBRE = 'nombreUsuario'
 const CLAVE_ROL = 'rolUsuario'
+const CLAVE_ID_USUARIO = 'idUsuario'
 
 function leer<T>(clave: string): T | null {
   try {
@@ -59,15 +60,23 @@ export function obtenerSesion(): Sesion | null {
   const nombre = localStorage.getItem(CLAVE_NOMBRE)
   const rol = localStorage.getItem(CLAVE_ROL)
   if (!nombre || !rol) return null
-  return { nombre, rol: rol === 'admin' ? 'admin' : 'cliente' }
+  const id = Number(localStorage.getItem(CLAVE_ID_USUARIO))
+  return {
+    ...(Number.isInteger(id) && id > 0 ? { id } : {}),
+    nombre,
+    rol: rol === 'admin' ? 'admin' : 'cliente',
+  }
 }
 
 export function guardarSesion(sesion: Sesion) {
   localStorage.setItem(CLAVE_NOMBRE, sesion.nombre)
   localStorage.setItem(CLAVE_ROL, sesion.rol)
+  if (sesion.id) localStorage.setItem(CLAVE_ID_USUARIO, String(sesion.id))
+  else localStorage.removeItem(CLAVE_ID_USUARIO)
 }
 
 export function cerrarSesion() {
   localStorage.removeItem(CLAVE_NOMBRE)
   localStorage.removeItem(CLAVE_ROL)
+  localStorage.removeItem(CLAVE_ID_USUARIO)
 }
