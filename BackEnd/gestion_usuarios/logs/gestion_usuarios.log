@@ -1,0 +1,62 @@
+2026-11-23T21:53:37.348-03:00  INFO 23064 --- [gestion_usuarios] [main] c.s.g.GestionUsuariosApplicationTests    : Starting GestionUsuariosApplicationTests using Java 21.0.10 with PID 23064 (started by helss in C:\Users\helss\Documents\GitHub\Proyecto-Fullstack-II\BackEnd\gestion_usuarios)
+2026-11-23T21:53:37.350-03:00  INFO 23064 --- [gestion_usuarios] [main] c.s.g.GestionUsuariosApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-11-23T21:53:39.410-03:00  INFO 23064 --- [gestion_usuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-23T21:53:39.606-03:00  INFO 23064 --- [gestion_usuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 182 ms. Found 2 JPA repository interfaces.
+2026-11-23T21:53:40.177-03:00  INFO 23064 --- [gestion_usuarios] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f849ccc-7229-32c4-9984-8362797134c3
+2026-11-23T21:53:41.098-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-23T21:53:41.230-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-23T21:53:41.844-03:00  INFO 23064 --- [gestion_usuarios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-23T21:53:41.911-03:00  INFO 23064 --- [gestion_usuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-23T21:53:42.335-03:00  INFO 23064 --- [gestion_usuarios] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:usuarios-app user=ROOT
+2026-11-23T21:53:42.338-03:00  INFO 23064 --- [gestion_usuarios] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-23T21:53:42.473-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:usuarios-app]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: USUARIOS-APP/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-23T21:53:44.038-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-23T21:53:44.148-03:00  INFO 23064 --- [gestion_usuarios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-23T21:53:44.288-03:00  INFO 23064 --- [gestion_usuarios] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-23T21:53:44.865-03:00  WARN 23064 --- [gestion_usuarios] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-23T21:53:46.469-03:00  WARN 23064 --- [gestion_usuarios] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-11-23T21:53:46.497-03:00  INFO 23064 --- [gestion_usuarios] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-23T21:53:46.593-03:00  INFO 23064 --- [gestion_usuarios] [main] c.s.g.GestionUsuariosApplicationTests    : Started GestionUsuariosApplicationTests in 9.835 seconds (process running for 14.807)
+2026-11-23T21:53:46.681-03:00  WARN 23064 --- [gestion_usuarios] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-23T21:53:46.728-03:00  INFO 23064 --- [gestion_usuarios] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.sonidovivo.gestion_usuarios.repository.UsuarioRepositoryTest]: UsuarioRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-23T21:53:46.778-03:00  INFO 23064 --- [gestion_usuarios] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.sonidovivo.gestion_usuarios.GestionUsuariosApplication for test class com.sonidovivo.gestion_usuarios.repository.UsuarioRepositoryTest
+2026-11-23T21:53:46.780-03:00  INFO 23064 --- [gestion_usuarios] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.sonidovivo.gestion_usuarios.repository.UsuarioRepositoryTest]: UsuarioRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-23T21:53:46.798-03:00  INFO 23064 --- [gestion_usuarios] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.sonidovivo.gestion_usuarios.GestionUsuariosApplication for test class com.sonidovivo.gestion_usuarios.repository.UsuarioRepositoryTest
+2026-11-23T21:53:46.860-03:00  INFO 23064 --- [gestion_usuarios] [main] c.s.g.repository.UsuarioRepositoryTest   : Starting UsuarioRepositoryTest using Java 21.0.10 with PID 23064 (started by helss in C:\Users\helss\Documents\GitHub\Proyecto-Fullstack-II\BackEnd\gestion_usuarios)
+2026-11-23T21:53:46.861-03:00  INFO 23064 --- [gestion_usuarios] [main] c.s.g.repository.UsuarioRepositoryTest   : No active profile set, falling back to 1 default profile: "default"
+2026-11-23T21:53:46.959-03:00  INFO 23064 --- [gestion_usuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-23T21:53:46.975-03:00  INFO 23064 --- [gestion_usuarios] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 2 JPA repository interfaces.
+2026-11-23T21:53:46.989-03:00  INFO 23064 --- [gestion_usuarios] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-11-23T21:53:47.027-03:00  INFO 23064 --- [gestion_usuarios] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:997a0604-b216-4800-889a-aa6a970e8eff;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-11-23T21:53:47.049-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-23T21:53:47.077-03:00  INFO 23064 --- [gestion_usuarios] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-23T21:53:47.079-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:997a0604-b216-4800-889a-aa6a970e8eff]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: 997A0604-B216-4800-889A-AA6A970E8EFF/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-23T21:53:47.135-03:00  INFO 23064 --- [gestion_usuarios] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-23T21:53:47.145-03:00  INFO 23064 --- [gestion_usuarios] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-23T21:53:47.187-03:00  INFO 23064 --- [gestion_usuarios] [main] c.s.g.repository.UsuarioRepositoryTest   : Started UsuarioRepositoryTest in 0.382 seconds (process running for 15.401)
+2026-11-23T21:53:48.740-03:00  INFO 23064 --- [gestion_usuarios] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-23T21:53:48.977-03:00  INFO 23064 --- [gestion_usuarios] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-23T21:53:48.978-03:00  INFO 23064 --- [gestion_usuarios] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-11-23T21:53:48.981-03:00  INFO 23064 --- [gestion_usuarios] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
