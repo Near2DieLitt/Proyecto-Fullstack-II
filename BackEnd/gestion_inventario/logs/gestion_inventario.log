@@ -1,0 +1,26 @@
+2026-11-24T00:36:23.887-03:00  INFO 18256 --- [gestion_inventario] [main] c.s.g.r.InventarioRepositoryTest         : Starting InventarioRepositoryTest using Java 21.0.10 with PID 18256 (started by helss in C:\Users\helss\Documents\GitHub\Proyecto-Fullstack-II\BackEnd\gestion_inventario)
+2026-11-24T00:36:23.892-03:00  INFO 18256 --- [gestion_inventario] [main] c.s.g.r.InventarioRepositoryTest         : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T00:36:24.635-03:00  INFO 18256 --- [gestion_inventario] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T00:36:25.038-03:00  INFO 18256 --- [gestion_inventario] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 381 ms. Found 3 JPA repository interfaces.
+2026-11-24T00:36:25.242-03:00  INFO 18256 --- [gestion_inventario] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-11-24T00:36:25.586-03:00  INFO 18256 --- [gestion_inventario] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:e88fd39a-e8ee-4962-b724-833c5dc00dc4;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-11-24T00:36:26.347-03:00  INFO 18256 --- [gestion_inventario] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T00:36:26.503-03:00  INFO 18256 --- [gestion_inventario] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-24T00:36:27.165-03:00  INFO 18256 --- [gestion_inventario] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T00:36:27.333-03:00  INFO 18256 --- [gestion_inventario] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:e88fd39a-e8ee-4962-b724-833c5dc00dc4]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: E88FD39A-E8EE-4962-B724-833C5DC00DC4/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T00:36:28.699-03:00  INFO 18256 --- [gestion_inventario] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T00:36:28.790-03:00  INFO 18256 --- [gestion_inventario] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T00:36:28.952-03:00  INFO 18256 --- [gestion_inventario] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-24T00:36:30.323-03:00  INFO 18256 --- [gestion_inventario] [main] c.s.g.r.InventarioRepositoryTest         : Started InventarioRepositoryTest in 7.274 seconds (process running for 11.539)
+2026-11-24T00:36:31.103-03:00  INFO 18256 --- [gestion_inventario] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

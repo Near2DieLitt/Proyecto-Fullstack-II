@@ -1,0 +1,88 @@
+2026-11-24T00:24:12.095-03:00  INFO 2944 --- [gestion-direcciones] [main] c.s.g.GestionDireccionesApplicationTests : Starting GestionDireccionesApplicationTests using Java 21.0.10 with PID 2944 (started by helss in C:\Users\helss\Documents\GitHub\Proyecto-Fullstack-II\BackEnd\gestion_direcciones)
+2026-11-24T00:24:12.096-03:00  INFO 2944 --- [gestion-direcciones] [main] c.s.g.GestionDireccionesApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T00:24:13.773-03:00  INFO 2944 --- [gestion-direcciones] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T00:24:14.025-03:00  INFO 2944 --- [gestion-direcciones] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 224 ms. Found 3 JPA repository interfaces.
+2026-11-24T00:24:14.337-03:00  INFO 2944 --- [gestion-direcciones] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=104e18b2-e2e0-3b6c-aa67-03b7ec563c3c
+2026-11-24T00:24:15.081-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T00:24:15.214-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-24T00:24:15.782-03:00  INFO 2944 --- [gestion-direcciones] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T00:24:15.838-03:00  INFO 2944 --- [gestion-direcciones] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-24T00:24:16.210-03:00  INFO 2944 --- [gestion-direcciones] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:direcciones-app user=ROOT
+2026-11-24T00:24:16.213-03:00  INFO 2944 --- [gestion-direcciones] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-24T00:24:16.334-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:direcciones-app]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: DIRECCIONES-APP/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T00:24:17.725-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T00:24:17.809-03:00  INFO 2944 --- [gestion-direcciones] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T00:24:17.917-03:00  INFO 2944 --- [gestion-direcciones] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-24T00:24:18.400-03:00  WARN 2944 --- [gestion-direcciones] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-24T00:24:19.273-03:00  INFO 2944 --- [gestion-direcciones] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-11-24T00:24:19.318-03:00  WARN 2944 --- [gestion-direcciones] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-11-24T00:24:19.368-03:00  INFO 2944 --- [gestion-direcciones] [main] c.s.g.GestionDireccionesApplicationTests : Started GestionDireccionesApplicationTests in 7.815 seconds (process running for 12.696)
+2026-11-24T00:24:19.371-03:00  WARN 2944 --- [gestion-direcciones] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-24T00:24:19.406-03:00  INFO 2944 --- [gestion-direcciones] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.sonidovivo.gestion_direcciones.repository.DireccionRepositoryTest]: DireccionRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T00:24:19.443-03:00  INFO 2944 --- [gestion-direcciones] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.sonidovivo.gestion_direcciones.GestionDireccionesApplication for test class com.sonidovivo.gestion_direcciones.repository.DireccionRepositoryTest
+2026-11-24T00:24:19.445-03:00  INFO 2944 --- [gestion-direcciones] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.sonidovivo.gestion_direcciones.repository.DireccionRepositoryTest]: DireccionRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-24T00:24:19.461-03:00  INFO 2944 --- [gestion-direcciones] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.sonidovivo.gestion_direcciones.GestionDireccionesApplication for test class com.sonidovivo.gestion_direcciones.repository.DireccionRepositoryTest
+2026-11-24T00:24:19.523-03:00  INFO 2944 --- [gestion-direcciones] [main] c.s.g.r.DireccionRepositoryTest          : Starting DireccionRepositoryTest using Java 21.0.10 with PID 2944 (started by helss in C:\Users\helss\Documents\GitHub\Proyecto-Fullstack-II\BackEnd\gestion_direcciones)
+2026-11-24T00:24:19.523-03:00  INFO 2944 --- [gestion-direcciones] [main] c.s.g.r.DireccionRepositoryTest          : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T00:24:19.621-03:00  INFO 2944 --- [gestion-direcciones] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T00:24:19.639-03:00  INFO 2944 --- [gestion-direcciones] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 3 JPA repository interfaces.
+2026-11-24T00:24:19.652-03:00  INFO 2944 --- [gestion-direcciones] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-11-24T00:24:19.681-03:00  INFO 2944 --- [gestion-direcciones] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:c38b2d49-2597-48db-a967-ed813e892c81;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-11-24T00:24:19.707-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T00:24:19.752-03:00  INFO 2944 --- [gestion-direcciones] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T00:24:19.755-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:c38b2d49-2597-48db-a967-ed813e892c81]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: C38B2D49-2597-48DB-A967-ED813E892C81/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T00:24:19.820-03:00  INFO 2944 --- [gestion-direcciones] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T00:24:19.834-03:00  INFO 2944 --- [gestion-direcciones] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T00:24:19.891-03:00  INFO 2944 --- [gestion-direcciones] [main] c.s.g.r.DireccionRepositoryTest          : Started DireccionRepositoryTest in 0.426 seconds (process running for 13.219)
+2026-11-24T00:24:21.035-03:00  INFO 2944 --- [gestion-direcciones] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T00:24:21.262-03:00  INFO 2944 --- [gestion-direcciones] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-11-24T00:24:21.263-03:00  INFO 2944 --- [gestion-direcciones] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-11-24T00:24:21.265-03:00  INFO 2944 --- [gestion-direcciones] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T00:33:31.545-03:00  INFO 15188 --- [gestion-direcciones] [main] c.s.g.r.DireccionRepositoryTest          : Starting DireccionRepositoryTest using Java 21.0.10 with PID 15188 (started by helss in C:\Users\helss\Documents\GitHub\Proyecto-Fullstack-II\BackEnd\gestion_direcciones)
+2026-11-24T00:33:31.548-03:00  INFO 15188 --- [gestion-direcciones] [main] c.s.g.r.DireccionRepositoryTest          : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T00:33:32.322-03:00  INFO 15188 --- [gestion-direcciones] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T00:33:32.887-03:00  INFO 15188 --- [gestion-direcciones] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 531 ms. Found 3 JPA repository interfaces.
+2026-11-24T00:33:33.125-03:00  INFO 15188 --- [gestion-direcciones] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-11-24T00:33:33.384-03:00  INFO 15188 --- [gestion-direcciones] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:ea4b4997-e15f-47c5-b727-7afbeeb8af1f;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-11-24T00:33:33.941-03:00  INFO 15188 --- [gestion-direcciones] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T00:33:34.060-03:00  INFO 15188 --- [gestion-direcciones] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-11-24T00:33:34.631-03:00  INFO 15188 --- [gestion-direcciones] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T00:33:34.791-03:00  INFO 15188 --- [gestion-direcciones] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:ea4b4997-e15f-47c5-b727-7afbeeb8af1f]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: EA4B4997-E15F-47C5-B727-7AFBEEB8AF1F/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T00:33:36.118-03:00  INFO 15188 --- [gestion-direcciones] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T00:33:36.212-03:00  INFO 15188 --- [gestion-direcciones] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T00:33:36.377-03:00  INFO 15188 --- [gestion-direcciones] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-24T00:33:36.719-03:00  INFO 15188 --- [gestion-direcciones] [main] c.s.g.r.DireccionRepositoryTest          : Started DireccionRepositoryTest in 5.984 seconds (process running for 10.267)
+2026-11-24T00:33:38.001-03:00  INFO 15188 --- [gestion-direcciones] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

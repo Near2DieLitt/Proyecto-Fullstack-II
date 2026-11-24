@@ -1,67 +1,100 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
-import Boton from '../Atoms/boton'
-import AreaTexto from '../Atoms/AreaTexto'
-import Entrada from '../Atoms/Entrada'
-import CampoFormulario from '../Molecule/CampoFormulario'
-
-const vacio = { nombre: '', correo: '', mensaje: '' }
+import { useState } from "react";
+import CampoFormulario from "../Molecule/CampoFormulario";
+import type { SubmitEvent } from "react";
+import { enviarContacto } from "../../servicios/contactoServicio";
+import { mensajeDeError } from "../../servicios/api";
 
 function FormularioContacto() {
-  const [form, setForm] = useState(vacio)
 
-  function enviar(e: FormEvent) {
-    e.preventDefault()
+  const [nombre, setNombre] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [mensaje, setMensaje] = useState("");
+  const [enviando, setEnviando] = useState(false);
 
-    if (form.nombre.trim() === '' || form.correo.trim() === '' || form.mensaje.trim() === '') {
-      alert('Por favor, completa todos los campos obligatorios (*).')
-      return
+
+  const manejarEnvio = async (e: SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault(); 
+
+    if (enviando) return;
+
+    if (nombre.trim() === "") {
+      alert("Debe ingresar su nombre");
+      return;
+    }
+    if (correo.trim() === "") {
+      alert("Debe ingresar su correo");
+      return;
     }
 
-    alert(`¡Gracias por escribirnos, ${form.nombre}! Hemos recibido tu mensaje y te responderemos pronto al correo ${form.correo}.`)
-    setForm(vacio)
-  }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+      alert("Ingrese un correo válido");
+      return;
+    }
+    if (mensaje.trim() === "") {
+      alert("Debe ingresar un mensaje");
+      return;
+    }
+
+
+    setEnviando(true);
+
+    try {
+
+      await enviarContacto({
+        nombreCompleto: nombre.trim(),
+        correo: correo.trim(),
+        mensaje: mensaje.trim(),
+      });
+
+      alert("Mensaje guardado correctamente");
+
+
+      setNombre("");
+      setCorreo("");
+      setMensaje("");
+    } catch (error) {
+      console.error("Error al enviar el contacto:", error);
+
+      alert(mensajeDeError(error, "No se pudo enviar el mensaje. Intente nuevamente."));
+    } finally {
+
+      setEnviando(false);
+    }
+  };
 
   return (
-    <form onSubmit={enviar}>
-      <CampoFormulario id="NombreContacto" etiqueta="NOMBRE" requerido contador={{ actual: form.nombre.length, max: 100 }}>
-        <Entrada
-          id="NombreContacto"
-          placeholder="Tu nombre completo"
-          maxLength={100}
-          value={form.nombre}
-          onChange={(e) => setForm({ ...form, nombre: e.target.value })}
-        />
-      </CampoFormulario>
+    <form onSubmit={manejarEnvio}>
+      <CampoFormulario
+        etiqueta="Nombre completo"
+        tipo="text"
+        nombre="nombre"
+        valor={nombre}
+        alCambiar={setNombre}
+      />
+      <CampoFormulario
+        etiqueta="Correo electrónico"
+        tipo="email"
+        nombre="correo"
+        valor={correo}
+        alCambiar={setCorreo}
+      />
+      <CampoFormulario
+        etiqueta="Mensaje"
+        tipo="text"
+        nombre="mensaje"
+        valor={mensaje}
+        alCambiar={setMensaje}
+      />
 
-      <CampoFormulario id="CorreoContacto" etiqueta="CORREO ELECTRÓNICO" requerido>
-        <Entrada
-          id="CorreoContacto"
-          type="email"
-          placeholder="nombre@ejemplo.com"
-          value={form.correo}
-          onChange={(e) => setForm({ ...form, correo: e.target.value })}
-        />
-      </CampoFormulario>
-
-      <CampoFormulario id="MensajeContacto" etiqueta="MENSAJE" requerido contador={{ actual: form.mensaje.length, max: 500 }}>
-        <AreaTexto
-          id="MensajeContacto"
-          placeholder="¿En qué podemos ayudarte?"
-          minLength={10}
-          maxLength={500}
-          rows={5}
-          style={{ resize: 'vertical' }}
-          value={form.mensaje}
-          onChange={(e) => setForm({ ...form, mensaje: e.target.value })}
-        />
-      </CampoFormulario>
-
-      <Boton type="submit" variante="submit" className="mt-2">
-        ENVIAR MENSAJE
-      </Boton>
+      <button
+        type="submit"
+        className="btn btn-primary"
+        disabled={enviando}
+      >
+        {enviando ? "Enviando..." : "Enviar mensaje"}
+      </button>
     </form>
-  )
+  );
 }
 
-export default FormularioContacto
+export default FormularioContacto;
