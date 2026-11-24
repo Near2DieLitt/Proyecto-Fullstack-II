@@ -10,7 +10,6 @@ export interface FiltrosProducto {
   destacado?: boolean;
 }
 
-// Arma ?categoria=1&min=1000... solo con los filtros que vengan con valor
 export function listarProductos(filtros: FiltrosProducto = {}) {
   const params = new URLSearchParams();
   Object.entries(filtros).forEach(([clave, valor]) => {
@@ -32,3 +31,8 @@ export const eliminarProducto = (id: number) => http<void>(`/productos/${id}`, {
 
 export const listarCategorias = () => http<{ id: number; nombre: string }[]>("/categorias");
 export const listarMarcas = () => http<{ id: number; nombre: string }[]>("/marcas");
+export const crearCategoria = (nombre: string) =>
+  http<{ id: number; nombre: string }>("/categorias", {
+    method: "POST",
+    body: JSON.stringify({ nombre }),
+  });

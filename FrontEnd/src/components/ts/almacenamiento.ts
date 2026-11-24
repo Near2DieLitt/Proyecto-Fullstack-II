@@ -38,12 +38,12 @@ export function guardarCarrito(carrito: ItemCarrito[]) {
 
 export function agregarAlCarrito(item: Omit<ItemCarrito, 'cantidad'>, cantidad = 1): boolean {
   const producto = obtenerProductos().find((p) => p.id === item.id)
-  if (!producto || cantidad < 1) return false
+  if (cantidad < 1) return false
 
   const carrito = obtenerCarrito()
   const existente = carrito.find((p) => p.id === item.id)
   const cantidadActual = existente?.cantidad ?? 0
-  if (cantidadActual + cantidad > producto.stock) return false
+  if (producto && cantidadActual + cantidad > producto.stock) return false
 
   if (existente) {
     existente.cantidad += cantidad

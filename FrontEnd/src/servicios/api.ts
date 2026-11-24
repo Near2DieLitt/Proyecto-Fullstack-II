@@ -12,7 +12,8 @@ export class ApiError extends Error {
   body: { mensaje?: string; campos?: Record<string, string> } | null;
 
   constructor(status: number, body: ApiError["body"]) {
-    super(body?.mensaje ?? `Error HTTP ${status}`);
+    const campos = body?.campos ? Object.values(body.campos).join(" ") : undefined;
+    super(body?.mensaje ?? campos ?? `Error HTTP ${status}`);
     this.status = status;
     this.body = body;
   }

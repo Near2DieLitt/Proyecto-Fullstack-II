@@ -1,35 +1,27 @@
-//@vitest-environment jsdom
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+// @vitest-environment jsdom
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import FormularioRegistro from '../components/Organism/FormularioRegistro'
 
-
 describe('FormularioRegistro', () => {
+  it('registra la cuenta usando el microservicio de usuarios', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+      ok: true,
+      status: 201,
+      json: async () => ({ id: 8, nombre: 'Ana García', rol: 'CLIENTE' }),
+    }))
+    vi.spyOn(window, 'alert').mockImplementation(() => {})
 
-
-  it('crea la cuenta cuando los datos son válidos', () => {
-    render(
-      <MemoryRouter>
-        <FormularioRegistro />
-      </MemoryRouter>,
-    )
-
-    fireEvent.change(screen.getByLabelText(/RUN/), { target: { value: '12345678K' } })
-    fireEvent.change(screen.getByLabelText(/NOMBRE/), { target: { value: 'Ana' } })
-    fireEvent.change(screen.getByLabelText(/APELLIDOS/), { target: { value: 'García' } })
-    fireEvent.change(screen.getByLabelText(/CORREO ELECTRÓNICO/), { target: { value: 'ana@ejemplo.com' } })
-    fireEvent.change(screen.getByLabelText(/^CONTRASEÑA/), { target: { value: '1234' } })
-    fireEvent.change(screen.getByLabelText(/CONFIRMAR/), { target: { value: '1234' } })
-    fireEvent.change(screen.getByLabelText(/TIPO DE USUARIO/), { target: { value: 'cliente' } })
-    fireEvent.change(screen.getByLabelText(/REGIÓN/), { target: { value: 'Valparaíso' } })
-    fireEvent.change(screen.getByLabelText(/COMUNA/), { target: { value: 'vina' } })
-    fireEvent.change(screen.getByLabelText(/DIRECCIÓN/), { target: { value: 'Calle Falsa 123' } })
-
+    render(<MemoryRouter><FormularioRegistro /></MemoryRouter>)
+    fireEvent.change(screen.getByLabelText('NOMBRE *'), { target: { value: 'Ana' } })
+    fireEvent.change(screen.getByLabelText('APELLIDOS *'), { target: { value: 'García' } })
+    fireEvent.change(screen.getByLabelText('CORREO ELECTRÓNICO *'), { target: { value: 'ana@ejemplo.com' } })
+    fireEvent.change(screen.getByLabelText('CONTRASEÑA *'), { target: { value: '1234' } })
+    fireEvent.change(screen.getByLabelText('CONFIRMAR *'), { target: { value: '1234' } })
     fireEvent.click(screen.getByText('CREAR CUENTA'))
 
-    expect(localStorage.getItem('nombreUsuario')).toBe('Ana')
-    expect(localStorage.getItem('rolUsuario')).toBe('cliente')
+    await waitFor(() => expect(localStorage.getItem('idUsuario')).toBe('8'))
+    vi.unstubAllGlobals()
   })
-
 })

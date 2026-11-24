@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CampoFormulario from "../Molecule/CampoFormulario";
-import type { SubmitEvent } from "react";
+import type { FormEvent } from "react";
 import { enviarContacto } from "../../servicios/contactoServicio";
 import { mensajeDeError } from "../../servicios/api";
 
@@ -12,7 +12,7 @@ function FormularioContacto() {
   const [enviando, setEnviando] = useState(false);
 
 
-  const manejarEnvio = async (e: SubmitEvent<HTMLFormElement>) => {
+  const manejarEnvio = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault(); 
 
     if (enviando) return;
@@ -66,32 +66,49 @@ function FormularioContacto() {
     <form onSubmit={manejarEnvio}>
       <CampoFormulario
         etiqueta="Nombre completo"
-        tipo="text"
-        nombre="nombre"
-        valor={nombre}
-        alCambiar={setNombre}
-      />
+        id="nombre-contacto"
+        requerido
+      >
+        <input
+          id="nombre-contacto"
+          type="text"
+          placeholder="Tu nombre completo"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+        />
+      </CampoFormulario>
       <CampoFormulario
         etiqueta="Correo electrónico"
-        tipo="email"
-        nombre="correo"
-        valor={correo}
-        alCambiar={setCorreo}
-      />
+        id="correo-contacto"
+        requerido
+      >
+        <input
+          id="correo-contacto"
+          type="email"
+          placeholder="nombre@ejemplo.com"
+          value={correo}
+          onChange={(e) => setCorreo(e.target.value)}
+        />
+      </CampoFormulario>
       <CampoFormulario
         etiqueta="Mensaje"
-        tipo="text"
-        nombre="mensaje"
-        valor={mensaje}
-        alCambiar={setMensaje}
-      />
+        id="mensaje-contacto"
+        requerido
+      >
+        <textarea
+          id="mensaje-contacto"
+          placeholder="¿En qué podemos ayudarte?"
+          value={mensaje}
+          onChange={(e) => setMensaje(e.target.value)}
+        />
+      </CampoFormulario>
 
       <button
         type="submit"
         className="btn btn-primary"
         disabled={enviando}
       >
-        {enviando ? "Enviando..." : "Enviar mensaje"}
+        {enviando ? "ENVIANDO..." : "ENVIAR MENSAJE"}
       </button>
     </form>
   );
