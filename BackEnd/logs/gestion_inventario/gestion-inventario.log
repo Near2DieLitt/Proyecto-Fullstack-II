@@ -1,0 +1,61 @@
+2026-11-24T07:10:39.987Z  INFO 1 --- [gestion-inventario] [main] c.s.g.GestionInventarioApplication       : Starting GestionInventarioApplication v0.0.1-SNAPSHOT using Java 21.0.13.1 with PID 1 (/app/app.jar started by root in /app)
+2026-11-24T07:10:40.050Z  INFO 1 --- [gestion-inventario] [main] c.s.g.GestionInventarioApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T07:10:57.937Z  INFO 1 --- [gestion-inventario] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T07:10:58.976Z  INFO 1 --- [gestion-inventario] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 931 ms. Found 3 JPA repository interfaces.
+2026-11-24T07:11:00.712Z  INFO 1 --- [gestion-inventario] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=20a846bf-09c5-3c8b-889c-ff1a6bc605cd
+2026-11-24T07:11:03.087Z  INFO 1 --- [gestion-inventario] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8090 (http)
+2026-11-24T07:11:03.163Z  INFO 1 --- [gestion-inventario] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-24T07:11:03.171Z  INFO 1 --- [gestion-inventario] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-11-24T07:11:03.295Z  INFO 1 --- [gestion-inventario] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 22549 ms
+2026-11-24T07:11:05.120Z  INFO 1 --- [gestion-inventario] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-24T07:11:07.155Z  INFO 1 --- [gestion-inventario] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@404009df
+2026-11-24T07:11:07.172Z  INFO 1 --- [gestion-inventario] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-24T07:11:07.524Z  INFO 1 --- [gestion-inventario] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://host.docker.internal:3306/db_inventario (MySQL 8.0)
+2026-11-24T07:11:07.910Z  INFO 1 --- [gestion-inventario] [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.165s)
+2026-11-24T07:11:08.034Z  INFO 1 --- [gestion-inventario] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `db_inventario`: << Empty Schema >>
+2026-11-24T07:11:08.155Z  INFO 1 --- [gestion-inventario] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_inventario` to version "1 - crear tablas inventario"
+2026-11-24T07:11:08.633Z  INFO 1 --- [gestion-inventario] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_inventario` to version "2 - insertar bodega principal"
+2026-11-24T07:11:08.886Z  INFO 1 --- [gestion-inventario] [main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema `db_inventario`, now at version v2 (execution time 00:00.348s)
+2026-11-24T07:11:09.971Z  INFO 1 --- [gestion-inventario] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T07:11:10.583Z  INFO 1 --- [gestion-inventario] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-11-24T07:11:13.593Z  INFO 1 --- [gestion-inventario] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T07:11:14.051Z  INFO 1 --- [gestion-inventario] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://host.docker.internal:3306/db_inventario]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.30
+	Default catalog/schema: db_inventario/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T07:11:20.319Z  INFO 1 --- [gestion-inventario] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T07:11:20.572Z  INFO 1 --- [gestion-inventario] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T07:11:20.944Z  INFO 1 --- [gestion-inventario] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-24T07:11:26.110Z  WARN 1 --- [gestion-inventario] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-24T07:11:29.513Z  INFO 1 --- [gestion-inventario] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-11-24T07:11:29.645Z  WARN 1 --- [gestion-inventario] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-11-24T07:11:29.764Z  INFO 1 --- [gestion-inventario] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-11-24T07:11:29.913Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-11-24T07:11:29.932Z  INFO 1 --- [gestion-inventario] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-11-24T07:11:29.965Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-11-24T07:11:29.967Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-11-24T07:11:29.968Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-11-24T07:11:29.970Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-11-24T07:11:29.972Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-11-24T07:11:29.973Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-11-24T07:11:29.974Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-11-24T07:11:31.036Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-11-24T07:11:31.042Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-11-24T07:11:31.054Z  INFO 1 --- [gestion-inventario] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-11-24T07:11:31.061Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1795504291059 with initial instances count: 8
+2026-11-24T07:11:31.073Z  INFO 1 --- [gestion-inventario] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application GESTION-INVENTARIO with eureka with status UP
+2026-11-24T07:11:31.076Z  INFO 1 --- [gestion-inventario] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1795504291076, current=UP, previous=STARTING]
+2026-11-24T07:11:31.080Z  INFO 1 --- [gestion-inventario] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GESTION-INVENTARIO/gestion-inventario:8090: registering service...
+2026-11-24T07:11:31.134Z  INFO 1 --- [gestion-inventario] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8090 (http) with context path '/'
+2026-11-24T07:11:31.163Z  INFO 1 --- [gestion-inventario] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8090
+2026-11-24T07:11:31.194Z  INFO 1 --- [gestion-inventario] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GESTION-INVENTARIO/gestion-inventario:8090 - registration status: 204
+2026-11-24T07:11:31.212Z  INFO 1 --- [gestion-inventario] [main] c.s.g.GestionInventarioApplication       : Started GestionInventarioApplication in 58.004 seconds (process running for 64.03)
+2026-11-24T07:11:31.834Z  WARN 1 --- [gestion-inventario] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'

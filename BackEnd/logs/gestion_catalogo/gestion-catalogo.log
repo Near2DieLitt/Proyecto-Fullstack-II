@@ -1,0 +1,70 @@
+2026-11-24T07:10:39.740Z  INFO 1 --- [gestion-catalogo] [main] c.s.g.CatalogoApplication                : Starting CatalogoApplication v0.0.1-SNAPSHOT using Java 21.0.13.1 with PID 1 (/app/app.jar started by root in /app)
+2026-11-24T07:10:39.806Z  INFO 1 --- [gestion-catalogo] [main] c.s.g.CatalogoApplication                : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T07:10:56.237Z  INFO 1 --- [gestion-catalogo] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T07:10:57.037Z  INFO 1 --- [gestion-catalogo] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 728 ms. Found 3 JPA repository interfaces.
+2026-11-24T07:10:58.814Z  INFO 1 --- [gestion-catalogo] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=91b3409f-cc66-3f71-93d1-2a758f931bcc
+2026-11-24T07:11:01.133Z  INFO 1 --- [gestion-catalogo] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8091 (http)
+2026-11-24T07:11:01.236Z  INFO 1 --- [gestion-catalogo] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-24T07:11:01.252Z  INFO 1 --- [gestion-catalogo] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-11-24T07:11:01.413Z  INFO 1 --- [gestion-catalogo] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 20668 ms
+2026-11-24T07:11:03.159Z  INFO 1 --- [gestion-catalogo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-24T07:11:05.359Z  INFO 1 --- [gestion-catalogo] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1b444b5
+2026-11-24T07:11:05.393Z  INFO 1 --- [gestion-catalogo] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-24T07:11:05.711Z  INFO 1 --- [gestion-catalogo] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://host.docker.internal:3306/db_catalogo (MySQL 8.0)
+2026-11-24T07:11:06.134Z  INFO 1 --- [gestion-catalogo] [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.203s)
+2026-11-24T07:11:06.353Z  INFO 1 --- [gestion-catalogo] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `db_catalogo`: << Empty Schema >>
+2026-11-24T07:11:06.445Z  INFO 1 --- [gestion-catalogo] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_catalogo` to version "1 - crear tablas catalogos"
+2026-11-24T07:11:07.220Z  INFO 1 --- [gestion-catalogo] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_catalogo` to version "2 - insertar categorias marcas"
+2026-11-24T07:11:07.451Z  INFO 1 --- [gestion-catalogo] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_catalogo` to version "3 - insertar imagenes"
+2026-11-24T07:11:07.659Z  INFO 1 --- [gestion-catalogo] [main] o.f.core.internal.command.DbMigrate      : Successfully applied 3 migrations to schema `db_catalogo`, now at version v3 (execution time 00:00.572s)
+2026-11-24T07:11:08.266Z  INFO 1 --- [gestion-catalogo] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T07:11:08.666Z  INFO 1 --- [gestion-catalogo] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-11-24T07:11:12.277Z  INFO 1 --- [gestion-catalogo] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T07:11:12.673Z  INFO 1 --- [gestion-catalogo] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://host.docker.internal:3306/db_catalogo]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.30
+	Default catalog/schema: db_catalogo/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T07:11:17.533Z  INFO 1 --- [gestion-catalogo] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T07:11:17.841Z  INFO 1 --- [gestion-catalogo] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T07:11:18.362Z  INFO 1 --- [gestion-catalogo] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-24T07:11:20.049Z  WARN 1 --- [gestion-catalogo] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-24T07:11:22.769Z  INFO 1 --- [gestion-catalogo] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-11-24T07:11:23.002Z  WARN 1 --- [gestion-catalogo] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-11-24T07:11:23.294Z  INFO 1 --- [gestion-catalogo] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-11-24T07:11:23.490Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-11-24T07:11:23.548Z  INFO 1 --- [gestion-catalogo] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-11-24T07:11:23.608Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-11-24T07:11:23.622Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-11-24T07:11:23.624Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-11-24T07:11:23.633Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-11-24T07:11:23.636Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-11-24T07:11:23.638Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-11-24T07:11:23.640Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-11-24T07:11:25.774Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-11-24T07:11:25.790Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-11-24T07:11:25.822Z  INFO 1 --- [gestion-catalogo] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-11-24T07:11:25.870Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1795504285851 with initial instances count: 0
+2026-11-24T07:11:25.890Z  INFO 1 --- [gestion-catalogo] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application GESTION-CATALOGO with eureka with status UP
+2026-11-24T07:11:25.904Z  INFO 1 --- [gestion-catalogo] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1795504285904, current=UP, previous=STARTING]
+2026-11-24T07:11:25.913Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GESTION-CATALOGO/gestion-catalogo:8091: registering service...
+2026-11-24T07:11:26.066Z  INFO 1 --- [gestion-catalogo] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8091 (http) with context path '/'
+2026-11-24T07:11:26.072Z  INFO 1 --- [gestion-catalogo] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8091
+2026-11-24T07:11:26.121Z  INFO 1 --- [gestion-catalogo] [main] c.s.g.CatalogoApplication                : Started CatalogoApplication in 52.591 seconds (process running for 58.77)
+2026-11-24T07:11:26.572Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GESTION-CATALOGO/gestion-catalogo:8091 - registration status: 204
+2026-11-24T07:11:29.434Z  WARN 1 --- [gestion-catalogo] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-24T07:11:55.782Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-11-24T07:11:55.783Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-11-24T07:11:55.784Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-11-24T07:11:55.784Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-11-24T07:11:55.785Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-11-24T07:11:55.786Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-11-24T07:11:55.787Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-11-24T07:11:55.812Z  INFO 1 --- [gestion-catalogo] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200

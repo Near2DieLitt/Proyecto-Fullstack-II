@@ -1,0 +1,70 @@
+2026-11-24T07:10:41.246Z  INFO 1 --- [gestion-mensajeria] [main] c.s.g.GestionMensajeriaApplication       : Starting GestionMensajeriaApplication v0.0.1-SNAPSHOT using Java 21.0.13.1 with PID 1 (/app/app.jar started by root in /app)
+2026-11-24T07:10:41.449Z  INFO 1 --- [gestion-mensajeria] [main] c.s.g.GestionMensajeriaApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-11-24T07:10:56.061Z  INFO 1 --- [gestion-mensajeria] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-24T07:10:56.775Z  INFO 1 --- [gestion-mensajeria] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 666 ms. Found 1 JPA repository interface.
+2026-11-24T07:10:58.644Z  INFO 1 --- [gestion-mensajeria] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f68c9891-84e0-3b91-8dc1-4101384161eb
+2026-11-24T07:11:01.352Z  INFO 1 --- [gestion-mensajeria] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8082 (http)
+2026-11-24T07:11:01.409Z  INFO 1 --- [gestion-mensajeria] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-24T07:11:01.417Z  INFO 1 --- [gestion-mensajeria] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-11-24T07:11:01.528Z  INFO 1 --- [gestion-mensajeria] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 19103 ms
+2026-11-24T07:11:03.258Z  INFO 1 --- [gestion-mensajeria] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-24T07:11:05.175Z  INFO 1 --- [gestion-mensajeria] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bcc8f13
+2026-11-24T07:11:05.179Z  INFO 1 --- [gestion-mensajeria] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-24T07:11:05.549Z  INFO 1 --- [gestion-mensajeria] [main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:mysql://host.docker.internal:3306/db_mensajeria (MySQL 8.0)
+2026-11-24T07:11:06.083Z  INFO 1 --- [gestion-mensajeria] [main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.275s)
+2026-11-24T07:11:06.299Z  INFO 1 --- [gestion-mensajeria] [main] o.f.core.internal.command.DbMigrate      : Current version of schema `db_mensajeria`: << Empty Schema >>
+2026-11-24T07:11:06.414Z  INFO 1 --- [gestion-mensajeria] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_mensajeria` to version "1 - crear tabla contacto"
+2026-11-24T07:11:07.069Z  INFO 1 --- [gestion-mensajeria] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_mensajeria` to version "2 - agregar estado contacto"
+2026-11-24T07:11:07.315Z  INFO 1 --- [gestion-mensajeria] [main] o.f.core.internal.command.DbMigrate      : Migrating schema `db_mensajeria` to version "3 - agregar respuesta contacto"
+2026-11-24T07:11:07.520Z  INFO 1 --- [gestion-mensajeria] [main] o.f.core.internal.command.DbMigrate      : Successfully applied 3 migrations to schema `db_mensajeria`, now at version v3 (execution time 00:00.413s)
+2026-11-24T07:11:08.128Z  INFO 1 --- [gestion-mensajeria] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-24T07:11:08.565Z  INFO 1 --- [gestion-mensajeria] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-11-24T07:11:12.718Z  INFO 1 --- [gestion-mensajeria] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-24T07:11:13.285Z  INFO 1 --- [gestion-mensajeria] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://host.docker.internal:3306/db_mensajeria]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.30
+	Default catalog/schema: db_mensajeria/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-24T07:11:17.590Z  INFO 1 --- [gestion-mensajeria] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-24T07:11:17.796Z  INFO 1 --- [gestion-mensajeria] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-24T07:11:18.375Z  INFO 1 --- [gestion-mensajeria] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-24T07:11:19.700Z  WARN 1 --- [gestion-mensajeria] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-24T07:11:23.303Z  INFO 1 --- [gestion-mensajeria] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestClient.
+2026-11-24T07:11:23.612Z  WARN 1 --- [gestion-mensajeria] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-11-24T07:11:23.762Z  INFO 1 --- [gestion-mensajeria] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-11-24T07:11:23.993Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-11-24T07:11:24.022Z  INFO 1 --- [gestion-mensajeria] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-11-24T07:11:24.091Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-11-24T07:11:24.099Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-11-24T07:11:24.105Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-11-24T07:11:24.123Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-11-24T07:11:24.131Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-11-24T07:11:24.132Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-11-24T07:11:24.150Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-11-24T07:11:26.073Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-11-24T07:11:26.087Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-11-24T07:11:26.129Z  INFO 1 --- [gestion-mensajeria] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-11-24T07:11:26.148Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1795504286144 with initial instances count: 0
+2026-11-24T07:11:26.160Z  INFO 1 --- [gestion-mensajeria] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application GESTION-MENSAJERIA with eureka with status UP
+2026-11-24T07:11:26.166Z  INFO 1 --- [gestion-mensajeria] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1795504286166, current=UP, previous=STARTING]
+2026-11-24T07:11:26.184Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GESTION-MENSAJERIA/gestion-mensajeria:8082: registering service...
+2026-11-24T07:11:26.306Z  INFO 1 --- [gestion-mensajeria] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'
+2026-11-24T07:11:26.324Z  INFO 1 --- [gestion-mensajeria] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2026-11-24T07:11:26.432Z  INFO 1 --- [gestion-mensajeria] [main] c.s.g.GestionMensajeriaApplication       : Started GestionMensajeriaApplication in 52.75 seconds (process running for 59.366)
+2026-11-24T07:11:26.447Z  WARN 1 --- [gestion-mensajeria] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-11-24T07:11:26.579Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_GESTION-MENSAJERIA/gestion-mensajeria:8082 - registration status: 204
+2026-11-24T07:11:56.101Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-11-24T07:11:56.102Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-11-24T07:11:56.103Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-11-24T07:11:56.103Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-11-24T07:11:56.104Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-11-24T07:11:56.105Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-11-24T07:11:56.106Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-11-24T07:11:56.128Z  INFO 1 --- [gestion-mensajeria] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
